@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44689c250e16f0345b63a5ac5b7da716, type: 3}
+  m_Name: "\u6D88\u5931\u7684\u65B0\u516B"
+  m_EditorClassIdentifier: 
+  name: "\u6D88\u5931\u7684\u65B0\u516B"
+  description: "\u5E6B\u52A9\u963F\u9280\u63FE\u5230\u65B0\u516B"
+  startDialogue:
+    lines:
+    - "\u5927\u934B\u5566\uFF01\u65B0\u516BCHI\u5514\u898B\u5497\u554A\u554A\u554A\u554A\u554A~"
+    - "\u4ECA\u6B21\u5BE6\u4FFE\u5927\u59D0\u982D\u9599\u5566\u3002\u3002\u3002"
+    - "\u679C\u908A\u5605\u767D\u6BDB\u975A\u4ED4\uFF0C\u6551\u547D\u554A\uFF0C\u5E6B\u6211\u63FE\u4E0B\u65B0\u516BCHI\u53BB\u5497\u908A\u3002"
+    - "\u4E8B\u5F8C\u91CD\u916C\uFF01\uFF01\uFF01\u771F\u5605\uFF0C\u6211\u963F\u9280\u5F9E\u4F86\u5514\u5443\u4EBA~"
+  inProgressDialogue:
+    lines:
+    - "\u5514\u597D\u671B\u5566\uFF0C\u5FEB\u5572\u53BB\u63FE\u65B0\u516B\u5566\uFF0C\u4F62\u4FC2\u4E00\u526F\u773C\u93E1\u3002"
+  completedDialogue:
+    lines:
+    - "\u65B0\u516BCHI\uFF0C\u7D42\u65BC\u63FE\u5230\u4F60\u5566\uFF01\uFF01\uFF01\uFF01"
+    - "\u591A\u8B1D\u4F60\u554A\u767D\u6BDB\uFF0C\u6211\u5187\u54A9\u53EF\u4EE5\u4FFE\u4F60\uFF0C\u6211\u6559\u4F60\u65AC\u64CA\u5566\u3002"
+    - "\u5462\u62DB\u5C31\u4FC2\u666E\u901A\u65AC\u64CA\uFF0C\u60F3\u8981\u6211\u5605\u6D1E\u723A\u6E56\uFF1F\uFF1F\u5187\u53EF\u80FD~"
+  requiredItem: {fileID: 11400000, guid: 6ce0c90887a438c4481d528bfbe00d79, type: 2}
+  rewardItem: {fileID: 11400000, guid: f706520d5b334d442b9fdcd9d01f09c8, type: 2}

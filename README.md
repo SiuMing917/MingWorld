@@ -1,2 +1,0 @@
-# MingWorld
-My Intern Project

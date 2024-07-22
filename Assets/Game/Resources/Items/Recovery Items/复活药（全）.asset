@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ab3398a37acbc91439a268d455252c1e, type: 3}
+  m_Name: "\u590D\u6D3B\u836F\uFF08\u5168\uFF09"
+  m_EditorClassIdentifier: 
+  name: "\u8F2A\u56DE\u5929\u751F\u85E5"
+  description: "\u5FA9\u6D3B\u5B78\u751F"
+  icon: {fileID: 3057794363970017049, guid: fc60c0dace0b2ea4b87e4932e808e210, type: 3}
+  price: 100
+  isSellable: 1
+  hpAmount: 0
+  restoreMaxHP: 0
+  ppAmount: 0
+  restoreMaxPP: 0
+  status: 0
+  recoverAllStatus: 0
+  revive: 0
+  maxRevive: 1
