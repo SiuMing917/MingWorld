@@ -13,7 +13,7 @@ public class Cutscene : MonoBehaviour, IPlayerTriggerable
     public IEnumerator Play()
     {
         //GameController開始Cut Scene State
-        GameControlller.Instance.StartCutsceneState();
+        GameControlller.Instance.StateMachine.Push(CutsceneState.i);
 
         foreach(var action in actions)
         {
@@ -24,7 +24,7 @@ public class Cutscene : MonoBehaviour, IPlayerTriggerable
         }
 
         //GameController開始Free Roam State
-        GameControlller.Instance.StartFreeRoamState();
+        GameControlller.Instance.StateMachine.Pop();
     }
 
     public void AddAction(CutsceneAction action)

@@ -80,6 +80,8 @@ public class TrainerController : MonoBehaviour, Interactable, ISavable
     /// <returns></returns>
     public IEnumerator TriggerTrainerBattle(PlayerController player)
     {
+        GameControlller.Instance.StateMachine.Push(CutsceneState.i);
+
         AudioManager.i.PlayMusic(trainerAppearsClip, loop: false);
 
         //顯示對話框
@@ -97,6 +99,9 @@ public class TrainerController : MonoBehaviour, Interactable, ISavable
 
         //進入戰鬥的行爲 顯示對話
         yield return DialogManager.Instance.ShowDialog(dialog);
+
+        GameControlller.Instance.StateMachine.Pop();
+
         GameControlller.Instance.StartTrainerBattle(this);
 
     }

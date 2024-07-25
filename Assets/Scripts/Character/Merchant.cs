@@ -9,7 +9,8 @@ public class Merchant : MonoBehaviour
 
     public IEnumerator Trade()
     {
-        yield return ShopController.i.StarTrading(this);
+        ShopMenuState.i.AvailableItems = availableItems;
+        yield return GameControlller.Instance.StateMachine.PushAndWait(ShopMenuState.i);
     }
 
     /// <summary>

@@ -26,6 +26,7 @@ MonoBehaviour:
     boosts: []
     status: 0
     volatileStatus: 0
+    selfeffect: 0
   secondaries: []
   target: 0
   sound: {fileID: 8300000, guid: dcc8b7b348cfe2e45a18250865dab226, type: 3}

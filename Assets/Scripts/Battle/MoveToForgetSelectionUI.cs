@@ -1,33 +1,37 @@
-ï»¿using System;
+using GDE.GenericSelectionUI;
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class MoveSelectonUI : MonoBehaviour
+public class MoveToForgetSelectionUI : SelectionUI<TextSlot>
 {
-    [SerializeField] List<Text> moveSelectionText;
-    [SerializeField] Color highlightedColor;
-    int currentSelection = 0;
+    [SerializeField] List<Text> moveTexts;
 
 
     /// <summary>
-    /// Initializeé¸æ“‡éºå¿˜ æ›´æ›æŠ€èƒ½ UI
+    /// Initialize¿ï¾Ü¿ò§Ñ §ó´«§Ş¯à UI
     /// </summary>
-    /// <param name="currentMoves">ç•¶å‰æœ‰çš„æŠ€èƒ½</param>
-    /// <param name="newMove">å¯å­¸ç¿’çš„æŠ€èƒ½</param>
+    /// <param name="currentMoves">·í«e¦³ªº§Ş¯à</param>
+    /// <param name="newMove">¥i¾Ç²ßªº§Ş¯à</param>
     public void SetMoveDate(List<MoveBase> currentMoves, MoveBase newMove)
     {
         for (int i = 0; i < currentMoves.Count; i++)
         {
-            moveSelectionText[i].text = currentMoves[i].Name;
+            moveTexts[i].text = currentMoves[i].Name;
         }
 
-        moveSelectionText[currentMoves.Count].text = newMove.Name;
+        moveTexts[currentMoves.Count].text = newMove.Name;
+
+        SetItems(moveTexts.Select(m => m.GetComponent<TextSlot>()).ToList());
     }
 
+    #region
+    /*
     /// <summary>
-    /// æŠ€èƒ½æ›´æ›äº¤äº’
+    /// §Ş¯à§ó´«¥æ¤¬
     /// </summary>
     public void HandleMoveSelection(Action<int> onSelected)
     {
@@ -46,7 +50,7 @@ public class MoveSelectonUI : MonoBehaviour
 
 
     /// <summary>
-    /// é¸ä¸­é¡”è‰²è®ŠåŒ–
+    /// ¿ï¤¤ÅÜ¦â
     /// </summary>
     /// <param name="selecton"></param>
     public void UpdateMoveSelection(int selecton)
@@ -61,5 +65,7 @@ public class MoveSelectonUI : MonoBehaviour
                 moveSelectionText[i].color = Color.black;
         }
     }
+    */
+    #endregion
 
 }

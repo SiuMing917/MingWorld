@@ -211,6 +211,7 @@ public class MoveEffects
     [SerializeField] List<StatBoost> boosts;
     [SerializeField] ConditionID status;
     [SerializeField] ConditionID volatileStatus;
+    [SerializeField] bool selfeffect = false;
 
 
     /// <summary>
@@ -234,6 +235,8 @@ public class MoveEffects
             return volatileStatus;
         }
     }
+    public bool SelfEffect
+    { get { return selfeffect; } }
 }
 
 [System.Serializable]

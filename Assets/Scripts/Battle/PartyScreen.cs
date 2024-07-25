@@ -1,10 +1,12 @@
-﻿using System;
+﻿using GDE.GenericSelectionUI;
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class PartyScreen : MonoBehaviour
+public class PartyScreen : SelectionUI<TextSlot>
 {
     [SerializeField] Text messageText;
     PartyMemberUI[] memberSlots;
@@ -12,23 +14,27 @@ public class PartyScreen : MonoBehaviour
     List<Pokemon> pokemons;
     PokemonParty party;
 
-    int selection = 0;
+    //已用SelectionUI,不再需要
+    //int selection = 0;
 
     /// <summary>
     /// 獲得選中的Pokemon 的Instance
     /// </summary>
-    public Pokemon SelectedMember => pokemons[selection];
+    public Pokemon SelectedMember => pokemons[selectedItem];
 
     /// <summary>
     /// 可以從不同的狀態調用Pokemon隊伍屏幕，如 ActionSelection、RunningTurn、AboutTousel
     /// </summary>
-    public BattleState? CalledFrom { get; set; }
+    /// //已用SelectionUI,不再需要
+    //public BattleState? CalledFrom { get; set; }
 
     //memberSlots Array中就存了所有subobject中的 PartyMemberUI element，可以在後續的Code中使用
     public void Init()
     {
         //獲得所有children components
         memberSlots = GetComponentsInChildren<PartyMemberUI>(true);
+        SetSelectionSettings(SelectionType.Grid, 2);
+
         party = PokemonParty.GetPlayerParty();
 
         SetPartyDate();
@@ -51,7 +57,9 @@ public class PartyScreen : MonoBehaviour
                 memberSlots[i].gameObject.SetActive(false);
         }
 
-        UpdateMemberSelection(selection);
+        var textSlots = memberSlots.Select(m => m.GetComponent<TextSlot>());
+        SetItems(textSlots.Take(pokemons.Count).ToList());
+        //UpdateMemberSelection(selection);
 
         messageText.text = "五條老師，請選擇學生";
     }
@@ -61,6 +69,9 @@ public class PartyScreen : MonoBehaviour
     /// </summary>
     /// <param name="onSelected"></param>
     /// <param name="onBack"></param>
+   //已用SelectionUI,不再需要
+
+    /*
     public void HandleUpdate(Action onSelected, Action onBack)
     {
         var prevSelection = selection;
@@ -88,11 +99,14 @@ public class PartyScreen : MonoBehaviour
             onBack?.Invoke();
         }
     }
+    */
 
 
 
 
     //當玩家選中隊伍中的Pokemon時
+    //已用SelectionUI,不再需要
+    /*
     public void UpdateMemberSelection(int selectedMember)
     {
         for (int i = 0; i < pokemons.Count; i++)
@@ -103,6 +117,7 @@ public class PartyScreen : MonoBehaviour
                 memberSlots[i].SetSelected(false);
         }
     }
+    */
 
     /// <summary>
     /// 控制顯示Pokemon 能否學習技能文本

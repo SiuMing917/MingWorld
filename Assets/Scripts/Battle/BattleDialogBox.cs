@@ -82,6 +82,8 @@ public class BattleDialogBox : MonoBehaviour
         choiceBox.SetActive(enabled);
     }
 
+    public bool IsChoiceBoxEnabled => choiceBox.activeSelf;
+
     //當actionTexts Player行爲被選中時
     public void UpdateActionSelection(int selectedAction)
     {

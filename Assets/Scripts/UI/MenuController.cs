@@ -1,40 +1,50 @@
-ï»¿using System;
+using GDE.GenericSelectionUI;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class MemuController : MonoBehaviour
+public class MenuController : SelectionUI<TextSlot>
 {
-    [SerializeField] GameObject memu;
+    private void Start()
+    {
+        SetItems(GetComponentsInChildren<TextSlot>().ToList());
+    }
+}
+
+/*¤w¥ÎSelcetionUI ¥N´À¡A¤£¦A»İ­n
+public class MenuController : MonoBehaviour
+{
+    [SerializeField] GameObject menu;
 
     public event Action<int> onMenuSelected;
     public event Action onBack;
 
-    List<Text> memuItems;
-    //è¨˜éŒ„ç¬¬ä¸€å€‹ä½ç½®(é¸é … é è¨­ç‚º0
+    List<Text> menuItems;
+    //°O¿ı²Ä¤@­Ó¦ì¸m(¿ï¶µ ¹w³]¬°0
     int selectedItem = 0;
 
     private void Awake()
     {
-        //ä½¿ç”¨linq çš„tolistæ–¹æ³•ç²å¾—åŠŸèƒ½è¡¨çš„æ‰€æœ‰å­ç‰©ä»¶çš„Textå±¬æ€§
-        memuItems = memu.GetComponentsInChildren<Text>().ToList();
+        //¨Ï¥Îlinq ªºtolist¤èªkÀò±o¥\¯àªíªº©Ò¦³¤lª«¥óªºTextÄİ©Ê
+        menuItems = menu.GetComponentsInChildren<Text>().ToList();
     }
 
-    public void OpenMemu()
+    public void OpenMenu()
     {
-        memu.SetActive(true);
+        menu.SetActive(true);
         UpdateItemSelection();
     }
 
-    public void CloseMemu()
+    public void CloseMenu()
     {
-        memu.SetActive(false);
+        menu.SetActive(false);
     }
 
     /// <summary>
-    /// åŠŸèƒ½è¡¨é¸æ“‡è¡Œç‚º
+    /// ¥\¯àªí¿ï¾Ü¦æ¬°
     /// </summary>
     public void HandleUpdate()
     {
@@ -44,7 +54,7 @@ public class MemuController : MonoBehaviour
             selectedItem++;
         else if (Input.GetKeyDown(KeyCode.UpArrow))
             selectedItem--;
-        selectedItem = Mathf.Clamp(selectedItem, 0, memuItems.Count - 1);
+        selectedItem = Mathf.Clamp(selectedItem, 0, menuItems.Count - 1);
 
         if (prevSelecton != selectedItem)
             UpdateItemSelection();
@@ -52,28 +62,29 @@ public class MemuController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Z))
         {
             onMenuSelected?.Invoke(selectedItem);
-            CloseMemu();
+            CloseMenu();
         }
         else if (Input.GetKeyDown(KeyCode.X))
         {
             onBack?.Invoke();
-            CloseMemu();
+            CloseMenu();
         }
 
     }
 
     /// <summary>
-    /// æ›´æ–°é¸ä¸­çš„é¡è‰²
+    /// §ó·s¿ï¤¤ªºÃC¦â
     /// </summary>
     public void UpdateItemSelection()
     {
-        for (int i = 0; i < memuItems.Count; i++)
+        for (int i = 0; i < menuItems.Count; i++)
         {
             if (selectedItem == i)
-                memuItems[i].color = GlobalSettings.i.HighlightedColor;
+                menuItems[i].color = GlobalSettings.i.HighlightedColor;
             else
-                memuItems[i].color = GlobalSettings.i.InHighlightedColor;
-                //memuItems[i].color = Color.black;
+                menuItems[i].color = GlobalSettings.i.InHighlightedColor;
+            //menuItems[i].color = Color.black;
         }
     }
 }
+*/

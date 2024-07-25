@@ -59,7 +59,7 @@ public class ConditionDB : MonoBehaviour
                 StartMessage="麻痹了",
                 OnBeforeMove=(Pokemon pokemon)=>
                 {
-                   if(Random.Range(1,5)==1)
+                   if(Random.Range(0,5) == 1)
                     {
                         pokemon.StatusChanges.Enqueue($"{pokemon.Base.Name}麻痹了而無法行動");
                         return false;
@@ -79,12 +79,12 @@ public class ConditionDB : MonoBehaviour
                 {
                     //自愈概率
                    if(Random.Range(1,5)==1)
-                    {
+                   {
                         pokemon.CureStatus();
                         pokemon.StatusChanges.Enqueue($"{pokemon.Base.Name}的封印狀態解除了");
                         return true;
-                    }
-                    return false;
+                   }
+                   return false;
                 }
             }
         },
@@ -106,11 +106,11 @@ public class ConditionDB : MonoBehaviour
                     if(pokemon.StatusTime<=0)
                     {
                         pokemon.CureStatus();
-                         pokemon.StatusChanges.Enqueue($"{pokemon.Base.Name}醒啦");
+                        pokemon.StatusChanges.Enqueue($"{pokemon.Base.Name}醒啦");
                         return true;
                     }
                     //每睡一回合减少一回合
-                   pokemon.StatusTime--;
+                    pokemon.StatusTime--;
                     pokemon.StatusChanges.Enqueue($"{pokemon.Base.Name}訓著咗");
                     return false;
                 }
@@ -134,18 +134,18 @@ public class ConditionDB : MonoBehaviour
                     if(pokemon.VolatileStatusTime<=0)
                     {
                         pokemon.CureVolatileStatus();
-                         pokemon.StatusChanges.Enqueue($"{pokemon.Base.Name}傻仔狀態解除了");
+                        pokemon.StatusChanges.Enqueue($"{pokemon.Base.Name}傻仔狀態解除了");
                         return true;
                     }
                     //每一回合减少一回合
                    pokemon.VolatileStatusTime--;
 
-                    if(Random.Range(1,3)==1)
-                     return true;
+                    if(Random.Range(0,3) == 2)
+                        return true;
 
                     pokemon.StatusChanges.Enqueue($"{pokemon.Base.Name}傻咗");
                     pokemon.DecreaseHP(pokemon.MaxHp/8);
-                   pokemon.StatusChanges.Enqueue($"{pokemon.Base.Name}發神經攻擊了自己");
+                    pokemon.StatusChanges.Enqueue($"{pokemon.Base.Name}發神經攻擊了自己");
                     return false;
                 }
             }

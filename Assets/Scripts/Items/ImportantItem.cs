@@ -9,4 +9,6 @@ public class ImportantItem : ItemBase
     {
         return true;
     }
+
+    public override bool CanUseInBattle => false;
 }

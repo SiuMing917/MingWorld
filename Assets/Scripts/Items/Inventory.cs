@@ -54,10 +54,15 @@ public class Inventory : MonoBehaviour, ISavable
     /// </summary>
     /// <param name="itemIndex">物品對象下標</param>
     /// <param name="selectedPokemon">寶可夢作用物件</param>
+
     public ItemBase UseItem(int itemIndex, Pokemon selectedPokemon, int selectedCategory)
     {
         var item = GetItem(itemIndex, selectedCategory);
+        return UseItem(item, selectedPokemon);
+    }
 
+    public ItemBase UseItem(ItemBase item, Pokemon selectedPokemon)
+    {
         bool itemUsed = item.Use(selectedPokemon);
         if (itemUsed)
         {

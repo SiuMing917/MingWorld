@@ -1,28 +1,25 @@
-﻿using System;
+﻿using GDEUtils.StateMachine;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-
-public enum GameState { FreeRoam, Battle, Dialog, Memu, PartyScreen, Bag, Cutscene, Pause, Evolution, Shop }
 public class GameControlller : MonoBehaviour
 {
 
-    [SerializeField] PlayerController PlayerController;
+    [SerializeField] PlayerController playerController;
     [SerializeField] BattleSystem battleSystem;
     [SerializeField] Camera worldCamera;
 
     [SerializeField] PartyScreen partyScreen;
     [SerializeField] InventoryUI inventoryUI;
-    GameState state;
-    GameState prevState;
-    GameState stateBeforeEvolution;
+
+    //控制狀態的Machine
+    public StateMachine<GameControlller> StateMachine { get; private set; }
 
     public SceneDetails CurrentScene { get; private set; }
 
     public SceneDetails PrevScene { get; private set; }
-
-    MemuController memuController;
 
 
     public static GameControlller Instance { get; private set; }
@@ -30,7 +27,7 @@ public class GameControlller : MonoBehaviour
     private void Awake()
     {
         Instance = this;
-        memuController = GetComponent<MemuController>();
+        //menuController = GetComponent<MenuController>();
 
         PokemonDB.Init();
         MoveDB.Init();
@@ -41,6 +38,10 @@ public class GameControlller : MonoBehaviour
 
     private void Start()
     {
+        //初始化State Machine
+        StateMachine = new StateMachine<GameControlller>(this);
+        StateMachine.ChangeState(FreeRoamState.i);
+
         //OnBattleOver返回 bool 類型 判斷戰鬥是否勝利（相對於玩家而言）
         battleSystem.OnBattleOver += EndBattle;
         //初始化隊伍介面
@@ -48,40 +49,12 @@ public class GameControlller : MonoBehaviour
 
         DialogManager.Instance.OnShowDialog += () =>
         {
-            prevState = state;
-            state = GameState.Dialog;
+            StateMachine.Push(DialogueState.i);
         };
         DialogManager.Instance.OnDialogFinished += () =>
         {
-            if (state == GameState.Dialog)
-                state = prevState;
+            StateMachine.Pop();
         };
-
-        //在功能表中選擇關閉時  回到自由狀態
-        memuController.onBack += () =>
-        {
-            state = GameState.FreeRoam;
-        };
-        //功能表選擇
-        memuController.onMenuSelected += OnMenuSelected;
-
-        EvolutionManger.i.OnStartEvolution += () =>
-        {
-            stateBeforeEvolution = state;
-            state = GameState.Evolution;
-        };
-        EvolutionManger.i.OnCompleteEvolution += () =>
-        {
-            partyScreen.SetPartyDate();
-            state = stateBeforeEvolution;
-
-            //進化結束 播放
-            AudioManager.i.PlayMusic(CurrentScene.SceneMusic, fade: true);
-
-        };
-
-        ShopController.i.OnStart += () => state = GameState.Shop;
-        ShopController.i.OnFinish += () => state = GameState.FreeRoam;
     }
 
 
@@ -93,43 +66,18 @@ public class GameControlller : MonoBehaviour
     {
         if (pause)
         {
-            prevState = state;
-            state = GameState.Pause;
+            StateMachine.Push(PauseState.i);
         }
         else
         {
-            state = prevState;
+            StateMachine.Pop();
         }
-    }
-
-    //開始Cut Scene
-    public void StartCutsceneState()
-    {
-        state = GameState.Cutscene;
-    }
-    public void StartFreeRoamState()
-    {
-        state = GameState.FreeRoam;
     }
 
     public void StartBattle(BattleTrigger trigger)
     {
-        state = GameState.Battle;
-        //啟動battleSystem
-        battleSystem.gameObject.SetActive(true);
-        //關閉 世界地圖攝像機
-        worldCamera.gameObject.SetActive(false);
-
-        //將PokemonParty元件附加到PlayerController物件上
-        var playerPokemon = PlayerController.GetComponent<PokemonParty>();
-
-        //從當前場景中  獲得MapArea元件（腳本  調用生成野生寶可夢的方法
-        var wildPokemon = CurrentScene.GetComponent<MapArea>().GetWildPokemon(trigger);
-
-        //複製出新的寶可夢 創建一個物件
-        var wildPokemonCopy = new Pokemon(wildPokemon.Base, wildPokemon.Level);
-
-        battleSystem.StartBattle(playerPokemon, wildPokemonCopy, trigger);
+        BattleState.i.trigger = trigger;
+        StateMachine.Push(BattleState.i);
     }
 
     TrainerController trainer;
@@ -139,17 +87,8 @@ public class GameControlller : MonoBehaviour
     /// <param name="trainer"></param>
     public void StartTrainerBattle(TrainerController trainer)
     {
-        state = GameState.Battle;
-        //啓動battleSystem 
-        battleSystem.gameObject.SetActive(true);
-        //關閉 世界地图摄像机
-        worldCamera.gameObject.SetActive(false);
-        this.trainer = trainer;
-        //將PokemonParty元件附加到PlayerController物件上
-        var playerParty = PlayerController.GetComponent<PokemonParty>();
-        var trainerParty = trainer.GetComponent<PokemonParty>();
-
-        battleSystem.StartTrainerBattle(playerParty, trainerParty);
+        BattleState.i.trainer = trainer;
+        StateMachine.Push(BattleState.i);
     }
 
 
@@ -159,8 +98,7 @@ public class GameControlller : MonoBehaviour
     /// <param name="trainer"></param>
     public void OnEnterTrainerView(TrainerController trainer)
     {
-        state = GameState.Cutscene;
-        StartCoroutine(trainer.TriggerTrainerBattle(PlayerController));
+        StartCoroutine(trainer.TriggerTrainerBattle(playerController));
     }
 
 
@@ -178,11 +116,10 @@ public class GameControlller : MonoBehaviour
 
         partyScreen.SetPartyDate();
 
-        state = GameState.FreeRoam;
         battleSystem.gameObject.SetActive(false);
         worldCamera.gameObject.SetActive(true);
 
-        var playerParty = PlayerController.GetComponent<PokemonParty>();
+        var playerParty = playerController.GetComponent<PokemonParty>();
 
 
         //存在進化 ？
@@ -200,72 +137,8 @@ public class GameControlller : MonoBehaviour
     /// </summary>
     private void Update()
     {
-        if (state == GameState.FreeRoam)
-        {
-            PlayerController.HandleUpdate();
-            //打開背包
-            if (Input.GetKeyDown(KeyCode.Return))
-            {
-                memuController.OpenMemu();
-                state = GameState.Memu;
-            }
-
-        }
-        else if(state == GameState.Cutscene)
-        {
-            PlayerController.Character.HandleUpdate();
-        }
-        //戰鬥
-        else if (state == GameState.Battle)
-        {
-            battleSystem.HandleUpdate();
-        }
-        //對話
-        else if (state == GameState.Dialog)
-        {
-            DialogManager.Instance.HandleUpdate();
-        }
-        //清單畫面
-        else if (state == GameState.Memu)
-        {
-            memuController.HandleUpdate();
-        }
-        //隊伍畫面
-        else if (state == GameState.PartyScreen)
-        {
-            Action onSelected = () =>
-            {
-                //顯示信息之類的
-            };
-            Action onBack = () =>
-            {
-                //關閉畫面
-                partyScreen.gameObject.SetActive(false);
-                state = GameState.FreeRoam;
-            };
-
-            partyScreen.HandleUpdate(onSelected, onBack);
-        }
-        //背包畫面
-        else if (state == GameState.Bag)
-        {
-            Action onBack = () =>
-            {
-                //關閉畫面
-                inventoryUI.gameObject.SetActive(false);
-                state = GameState.FreeRoam;
-            };
-
-            inventoryUI.HandleUpdate(onBack);
-        }
-        //商店畫面
-        else if (state == GameState.Shop)
-        {
-            ShopController.i.HandleUpdate();
-        }
-
-
-
+        //有了State Machine,可以簡化Sate的Code
+        StateMachine.Execute();
     }
 
     /// <summary>
@@ -277,40 +150,6 @@ public class GameControlller : MonoBehaviour
         PrevScene = CurrentScene;
         CurrentScene = currScene;
     }
-
-    /// <summary>
-    /// 功能表選擇執行
-    /// </summary>
-    /// <param name="selectedItem"></param>
-    void OnMenuSelected(int selectedItem)
-    {
-        if (selectedItem == 0)
-        {
-            //Pokemon隊伍
-            partyScreen.gameObject.SetActive(true);
-            state = GameState.PartyScreen;
-        }
-        else if (selectedItem == 1)
-        {
-            //背包
-            inventoryUI.gameObject.SetActive(true);
-            state = GameState.Bag;
-        }
-        else if (selectedItem == 2)
-        {
-            //保存/SAVE
-            SavingSystem.i.Save("save01");
-            state = GameState.FreeRoam;
-        }
-        else if (selectedItem == 3)
-        {
-            //載入/LOAD
-            SavingSystem.i.Load("save01");
-            state = GameState.FreeRoam;
-        }
-        //回到自由行動模式
-    }
-
 
     /// <summary>
     /// 調整相機 移動 淡化淡出
@@ -330,6 +169,19 @@ public class GameControlller : MonoBehaviour
             StartCoroutine(Fader.i.FadeOut(0.5f));
     }
 
+    private void OnGUI()
+    {
+        var style = new GUIStyle();
+        style.fontSize = 24;
 
-    public GameState State => state;
+        GUILayout.Label("STATE STACK",style);
+        foreach (var state in StateMachine.StateStack)
+        {
+            GUILayout.Label(state.GetType().ToString(), style);
+        }
+    }
+    public PlayerController PlayerController => playerController;
+    public Camera WorldCamera => worldCamera;
+
+    public PartyScreen PartyScreen => partyScreen;
 }
