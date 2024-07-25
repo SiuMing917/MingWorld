@@ -174,11 +174,13 @@ public class GameControlller : MonoBehaviour
         var style = new GUIStyle();
         style.fontSize = 24;
 
-        GUILayout.Label("STATE STACK",style);
-        foreach (var state in StateMachine.StateStack)
-        {
-            GUILayout.Label(state.GetType().ToString(), style);
-        }
+        //GUILayout.Label("STATE STACK",style);
+        var state = StateMachine.CurrentState;
+        GUILayout.Label(state.GetType().ToString(), style);
+        //foreach (var state in StateMachine.StateStack)
+        //{
+        //    GUILayout.Label(state.GetType().ToString(), style);
+        //}
     }
     public PlayerController PlayerController => playerController;
     public Camera WorldCamera => worldCamera;

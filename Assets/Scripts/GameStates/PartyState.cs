@@ -43,36 +43,73 @@ public class PartyState : State<GameControlller>
     {
         SelectedPokemon = partyScreen.SelectedMember;
 
+        StartCoroutine(PokemonSelectedAction(selection));
+    }
+
+    IEnumerator PokemonSelectedAction(int selectedPokemonIndex)
+    {
         var prevState = gc.StateMachine.GetPrevState();
+
         if (prevState == InventoryState.i)
         {
             //用道具
             Debug.Log("用道具");
             StartCoroutine(GoToUseItemState());
         }
-        else if(prevState == BattleState.i)
+        else if (prevState == BattleState.i)
         {
             var battleState = prevState as BattleState;
 
-            //獲得隊伍中當前選中的Pokemon
+            DynamicMenuState.i.MenuItems = new List<string>() { "交換上場", "能力概覽", "取消操作" };
+            yield return gc.StateMachine.PushAndWait(DynamicMenuState.i);
+            if (DynamicMenuState.i.SelectedItem == 0)
+            {
+                //交換Pokemon出場
+                //獲得隊伍中當前選中的Pokemon
 
-            if (SelectedPokemon.HP <= 0)
-            {
-                partyScreen.SetMessageText("學生無法戰鬥");
-                return;
+                if (SelectedPokemon.HP <= 0)
+                {
+                    partyScreen.SetMessageText("學生無法戰鬥");
+                    yield break;
+                }
+                if (SelectedPokemon == battleState.BattleSystem.PlayerUnit.Pokemon)
+                {
+                    partyScreen.SetMessageText("當前出場為選中的學生");
+                    yield break;
+                }
             }
-            if (SelectedPokemon == battleState.BattleSystem.PlayerUnit.Pokemon)
+            else if (DynamicMenuState.i.SelectedItem == 1)
             {
-                partyScreen.SetMessageText("當前出場為選中的學生");
-                return;
+                //概覽
+                SummaryState.i.SelectedPokemonIndex = selectedPokemonIndex;
+                yield return gc.StateMachine.PushAndWait(SummaryState.i);
+                yield break;
+            }
+            else
+            {
+                yield break;
             }
 
             gc.StateMachine.Pop();
         }
         else
         {
-            //要做： Pokemon一覽畫面
-            Debug.Log($"選擇學生at Index {selection}");
+            DynamicMenuState.i.MenuItems = new List<string>() { "能力概覽", "交換位置", "取消操作" };
+            yield return gc.StateMachine.PushAndWait(DynamicMenuState.i);
+            if(DynamicMenuState.i.SelectedItem == 0)
+            {
+                //Pokemon一覽畫面
+                SummaryState.i.SelectedPokemonIndex = selectedPokemonIndex;
+                yield return gc.StateMachine.PushAndWait(SummaryState.i);
+            }
+            else if (DynamicMenuState.i.SelectedItem == 1)
+            {
+                //交換Pokemon位置
+            }
+            else
+            {
+                yield break;
+            }
         }
     }
 

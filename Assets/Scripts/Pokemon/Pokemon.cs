@@ -401,6 +401,18 @@ public class Pokemon
         CureStatus();
     }
 
+    /// <summary>
+    /// 計算顯示在 Scale Bar的Value
+    /// </summary>
+    /// <returns></returns>
+    public float GetNormalizedExp()
+    {
+        int currLevelExp = Base.GetExpForLevel(Level);
+        int nextLevelExp = Base.GetExpForLevel(Level + 1);
+
+        float normalizedExp = (float)(Exp - currLevelExp) / (nextLevelExp - currLevelExp);
+        return Mathf.Clamp01(normalizedExp);
+    }
 
     public int Attack
     {
@@ -414,7 +426,7 @@ public class Pokemon
     {
         get { return GetStat(Stat.魔法); }
     }
-    public int SpDefence
+    public int SpDefense
     {
         get { return GetStat(Stat.魔防); }
     }
@@ -455,7 +467,7 @@ public class Pokemon
         };
         //判斷技能類型 返回攻擊類型 物/特
         float attack = (move.Base.Category == MoveCategory.Special) ? attacker.SpAttack : attacker.Attack;
-        float defense = (move.Base.Category == MoveCategory.Special) ? SpDefence : Defense;
+        float defense = (move.Base.Category == MoveCategory.Special) ? SpDefense : Defense;
 
         float modifiers = Random.Range(0.85f, 1f) * type * critical;
         float a = (2 * attacker.Level + 10) / 250f;

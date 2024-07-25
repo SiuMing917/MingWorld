@@ -44,10 +44,30 @@ public class GameMenuState : State<GameControlller>
             gc.StateMachine.Push(PartyState.i);
         else if (selection == 1)// Bag
             gc.StateMachine.Push(InventoryState.i);
+        else if (selection == 2)// Save
+        {
+            SavingSystem.i.Save("save01");
+            gc.StateMachine.Pop();
+            StartCoroutine(ShowSaveLoadDialog(true));
+        }
+        else if (selection == 3)// Load
+        {
+            SavingSystem.i.Load("save01");
+            gc.StateMachine.Pop();
+            StartCoroutine(ShowSaveLoadDialog(false));
+        }
     }
 
     void OnBack()
     {
         gc.StateMachine.Pop();
+    }
+
+    public IEnumerator ShowSaveLoadDialog(bool isSave)
+    {
+        if (isSave)
+            yield return DialogManager.Instance.ShowDialogText("已保存檔案...");
+        else
+            yield return DialogManager.Instance.ShowDialogText("已載入檔案...");
     }
 }

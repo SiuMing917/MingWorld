@@ -9,7 +9,7 @@ public class Healer : MonoBehaviour
         int selectedChoice = 0;
         yield return DialogManager.Instance.ShowDialogText("您想要治療學生嗎？",
            choices: new List<string>() { "是", "否" },
-            onChoiceSelected: (choiceIndex) => selectedChoice = choiceIndex);
+           onChoiceSelected: (choiceIndex) => selectedChoice = choiceIndex);
         //(choiceIndex) => selectedChoice = choiceIndex：
         //一個Lambda運算式作為回呼函數，在使用者選擇某個選項後將選項的索引賦值給selectedChoice變數。
 
