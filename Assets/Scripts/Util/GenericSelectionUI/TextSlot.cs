@@ -8,10 +8,15 @@ public class TextSlot : MonoBehaviour, ISelectableItem
     [SerializeField] Text text;
 
     Color originalColor;
+    int originalSize;
+    FontStyle originalStyle;
+    public Color customColor = GlobalSettings.i.HighlightedColor;
 
     public void Init()
     {
         originalColor = text.color;
+        originalStyle = text.fontStyle;
+        originalSize = text.fontSize;
     }
 
     public void Clear()
@@ -27,5 +32,12 @@ public class TextSlot : MonoBehaviour, ISelectableItem
     public void SetText(string s)
     {
         text.text = s;
+    }
+
+    public void OnSelectionCustomChanged(bool selected, Color customColor, FontStyle fontStyle, int fontSize)
+    {
+        text.color = (selected) ? customColor : originalColor;
+        text.fontStyle = (selected) ? fontStyle : originalStyle;
+        text.fontSize = (selected) ? fontSize : originalSize;
     }
 }

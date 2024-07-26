@@ -7,6 +7,8 @@ public class SummaryState : State<GameControlller>
 {
     [SerializeField] SummaryScreenUI summaryScreen;
 
+    int selectedPage = 0;
+
     // Input
 
     public int SelectedPokemonIndex { get; set; }
@@ -32,41 +34,77 @@ public class SummaryState : State<GameControlller>
 
         summaryScreen.gameObject.SetActive(true);
         summaryScreen.SetBasicDetails(playerParty[SelectedPokemonIndex]);
-        summaryScreen.SetSkills();
+        summaryScreen.ShowPage(selectedPage);
     }
 
     public override void Execute()
     {
-
-        int prevSelection = SelectedPokemonIndex;
-
-        if(Input.GetKeyDown(KeyCode.X))
+        if (!summaryScreen.InMoveSelection)
         {
+            //選擇頁面
+            int prevPage = selectedPage;
+            if (Input.GetKeyDown(KeyCode.LeftArrow))
+            {
+                selectedPage = Mathf.Abs((selectedPage - 1) % 2);
+            }
+            else if (Input.GetKeyDown(KeyCode.RightArrow))
+            {
+                selectedPage = Mathf.Abs((selectedPage + 1) % 2);
+            }
+
+            if (selectedPage != prevPage)
+            {
+                summaryScreen.ShowPage(selectedPage);
+            }
+
+
+            // 選擇學生
+            int prevSelection = SelectedPokemonIndex;
+            if (Input.GetKeyDown(KeyCode.DownArrow))
+            {
+                SelectedPokemonIndex += 1;
+
+                if (SelectedPokemonIndex >= playerParty.Count)
+                    SelectedPokemonIndex = 0;
+            }
+
+            if (Input.GetKeyDown(KeyCode.UpArrow))
+            {
+                SelectedPokemonIndex -= 1;
+
+                if (SelectedPokemonIndex < 0)
+                    SelectedPokemonIndex = playerParty.Count - 1;
+            }
+
+            if (SelectedPokemonIndex != prevSelection)
+            {
+                summaryScreen.SetBasicDetails(playerParty[SelectedPokemonIndex]);
+                summaryScreen.ShowPage(selectedPage);
+            }
+        }
+
+        if (Input.GetKeyDown(KeyCode.Z))
+        {
+            if(selectedPage == 1 && !summaryScreen.InMoveSelection)
+            {
+                summaryScreen.InMoveSelection = true;
+            }
+        }
+        else if (Input.GetKeyDown(KeyCode.X))
+        {
+            if (summaryScreen.InMoveSelection)
+            {
+                summaryScreen.InMoveSelection = false;
+            }
+            else
+            {
                 gc.StateMachine.Pop();
                 return;
+            }
         }
 
-        if (Input.GetKeyDown(KeyCode.DownArrow))
-        {
-            SelectedPokemonIndex += 1;
+        summaryScreen.HandleUpdate();
 
-            if (SelectedPokemonIndex >= playerParty.Count)
-                SelectedPokemonIndex = 0;
-        }
-
-        if (Input.GetKeyDown(KeyCode.UpArrow))
-        {
-            SelectedPokemonIndex -= 1;
-
-            if (SelectedPokemonIndex < 0)
-                SelectedPokemonIndex = playerParty.Count-1;
-        }
-
-        if(SelectedPokemonIndex != prevSelection)
-        {
-            summaryScreen.SetBasicDetails(playerParty[SelectedPokemonIndex]);
-            summaryScreen.SetSkills();
-        }
     }
 
     public override void Exit()
