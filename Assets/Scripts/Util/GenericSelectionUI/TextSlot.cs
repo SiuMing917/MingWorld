@@ -10,7 +10,7 @@ public class TextSlot : MonoBehaviour, ISelectableItem
     Color originalColor;
     int originalSize;
     FontStyle originalStyle;
-    public Color customColor = GlobalSettings.i.HighlightedColor;
+    public Color customColor;
 
     public void Init()
     {

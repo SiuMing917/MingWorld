@@ -14,6 +14,8 @@ public class PartyScreen : SelectionUI<TextSlot>
     List<Pokemon> pokemons;
     PokemonParty party;
 
+    public bool isUsingTm = false;
+
     //已用SelectionUI,不再需要
     //int selection = 0;
 
@@ -46,6 +48,8 @@ public class PartyScreen : SelectionUI<TextSlot>
     public void SetPartyDate()
     {
         pokemons = party.Pokemons;
+        ClearItems();
+
         for (int i = 0; i < memberSlots.Length; i++)
         {
             if (i < pokemons.Count)
@@ -127,7 +131,7 @@ public class PartyScreen : SelectionUI<TextSlot>
     {
         for (int i = 0; i < pokemons.Count; i++)
         {
-            string message = tmItem.CanBeTaught(pokemons[i]) ? "能學習" : "不能學習";
+            string message = tmItem.CanBeTaught(pokemons[i])?"能學習":"不能學習";
             memberSlots[i].SetMessage(message);
         }
     }

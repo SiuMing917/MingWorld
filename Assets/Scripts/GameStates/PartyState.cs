@@ -8,11 +8,20 @@ public class PartyState : State<GameControlller>
     [SerializeField] PartyScreen partyScreen;
 
     public Pokemon SelectedPokemon { get; private set; }
+
+    bool isSwitchingPosition;
+    int selectedIndexForSwitching = 0;
     public static PartyState i { get; private set; }
 
     private void Awake()
     {
         i = this;
+    }
+
+    PokemonParty playerParty;
+    private void Start()
+    {
+        playerParty = PlayerController.i.GetComponent<PokemonParty>();
     }
 
     GameControlller gc;
@@ -22,7 +31,15 @@ public class PartyState : State<GameControlller>
         gc = owner;
 
         SelectedPokemon = null;
+
         partyScreen.gameObject.SetActive(true);
+
+        //正常進入就清理學習技能相關文本
+        if(!gc.PartyScreen.isUsingTm)
+        {
+            gc.PartyScreen.ClaerMemberSlotMessage();
+        }
+
         partyScreen.OnSelected += OnPokemonSelected;
         partyScreen.OnBack += OnBack;
     }
@@ -94,6 +111,25 @@ public class PartyState : State<GameControlller>
         }
         else
         {
+            if(isSwitchingPosition)
+            {
+                if (selectedIndexForSwitching == selectedPokemonIndex)
+                {
+                    partyScreen.SetMessageText("不可以與自己交換位置！！！");
+                    yield break;
+                }
+
+                isSwitchingPosition = false;
+
+                var tmpPokemon = playerParty.Pokemons[selectedIndexForSwitching];
+                playerParty.Pokemons[selectedIndexForSwitching] = playerParty.Pokemons[selectedPokemonIndex];
+                playerParty.Pokemons[selectedPokemonIndex] = tmpPokemon;
+                playerParty.PartyUpdated();
+
+                yield break;
+
+            }
+
             DynamicMenuState.i.MenuItems = new List<string>() { "能力概覽", "交換位置", "取消操作" };
             yield return gc.StateMachine.PushAndWait(DynamicMenuState.i);
             if(DynamicMenuState.i.SelectedItem == 0)
@@ -105,6 +141,9 @@ public class PartyState : State<GameControlller>
             else if (DynamicMenuState.i.SelectedItem == 1)
             {
                 //交換Pokemon位置
+                isSwitchingPosition = true;
+                selectedIndexForSwitching = selectedPokemonIndex;
+                partyScreen.SetMessageText("請選擇要與當前學生交換位置的學生。");
             }
             else
             {

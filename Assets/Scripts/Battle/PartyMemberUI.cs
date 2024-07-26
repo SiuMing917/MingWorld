@@ -33,7 +33,7 @@ public class PartyMemberUI : MonoBehaviour
 
 
 
-    //改变颜色
+    //改變顔色
     public void SetSelected(bool seleted)
     {
         if (seleted)
@@ -43,7 +43,7 @@ public class PartyMemberUI : MonoBehaviour
     }
 
     /// <summary>
-    /// 显示 能否学习技能文本
+    /// 顯示是否能學習技能
     /// </summary>
     /// <param name="message"></param>
     public void SetMessage(string message)

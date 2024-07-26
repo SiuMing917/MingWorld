@@ -43,6 +43,7 @@ public class InventoryState : State<GameControlller>
 
     public override void Exit()
     {
+        gc.PartyScreen.isUsingTm = false;
         inventoryUI.gameObject.SetActive(false);
         inventoryUI.OnSelected -= OnItemSelected;
         inventoryUI.OnBack -= OnBack;
@@ -92,6 +93,20 @@ public class InventoryState : State<GameControlller>
             gc.StateMachine.Pop();
             yield break;
         }
+
+        if(SelectedItem is TmItem)
+        {
+            var tmItem = SelectedItem as TmItem;
+            //更新Party畫面。
+            gc.PartyScreen.isUsingTm = true;
+            gc.PartyScreen.ShowIfTmIsUsable(tmItem);
+        }
+        else
+        {
+            gc.PartyScreen.isUsingTm = false;
+            gc.PartyScreen.ClaerMemberSlotMessage();
+        }
+
         yield return gc.StateMachine.PushAndWait(PartyState.i);
 
         

@@ -97,7 +97,7 @@ public class UseItemState : State<GameControlller>
             yield break;
 
         var pokemon = partyScreen.SelectedMember;
-
+        
         //技能擁有判定
         if (pokemon.HasMove(tmItem.Move))
         {
