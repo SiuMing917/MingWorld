@@ -4340,9 +4340,9 @@ MonoBehaviour:
   energyText: {fileID: 228236853485131470}
   attackText: {fileID: 7501671866191377593}
   defenseText: {fileID: 4013149266577637076}
-  spAttackText: {fileID: 5867357299943112059}
-  spDefenseText: {fileID: 8584008663258685852}
-  speedText: {fileID: 1979922518833516412}
+  spAttackText: {fileID: 8769764347477693316}
+  spDefenseText: {fileID: 1252960404493803253}
+  speedText: {fileID: 9170880615703361245}
   expPointsText: {fileID: 4239789767713084296}
   nextLevelExpText: {fileID: 4748958510361308905}
   expBar: {fileID: 4350587284415523427}
