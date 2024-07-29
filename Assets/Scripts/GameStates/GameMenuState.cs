@@ -56,6 +56,8 @@ public class GameMenuState : State<GameControlller>
             gc.StateMachine.Pop();
             StartCoroutine(ShowSaveLoadDialog(false));
         }
+        else if (selection == 4)// Pokemon
+            gc.StateMachine.Push(StorageState.i);
     }
 
     void OnBack()
