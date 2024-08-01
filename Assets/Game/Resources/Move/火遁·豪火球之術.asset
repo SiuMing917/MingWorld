@@ -21,15 +21,18 @@ MonoBehaviour:
   pp: 25
   priority: 0
   energy: 5
+  criticalrate: 0
   category: 1
   effects:
     boosts: []
     status: 0
     volatileStatus: 0
+    selfeffect: 0
   secondaries:
   - boosts: []
     status: 2
     volatileStatus: 0
+    selfeffect: 0
     change: 30
     target: 0
   target: 0

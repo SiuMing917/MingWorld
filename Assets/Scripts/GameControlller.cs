@@ -24,6 +24,8 @@ public class GameControlller : MonoBehaviour
 
     public static GameControlller Instance { get; private set; }
 
+    public bool isNewGame = true;
+
     private void Awake()
     {
         Instance = this;
@@ -55,6 +57,9 @@ public class GameControlller : MonoBehaviour
         {
             StateMachine.Pop();
         };
+
+        if(!isNewGame)
+            SavingSystem.i.Load("save01");
     }
 
 

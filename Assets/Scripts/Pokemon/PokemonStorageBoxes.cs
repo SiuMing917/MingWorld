@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PokemonStorageBoxes : MonoBehaviour
 {
-    Pokemon[,] boxes = new Pokemon[16, 30];
+    public Pokemon[,] boxes = new Pokemon[16, 30];
 
     public void AddPokemon(Pokemon pokemon, int boxIndex, int slotIndex)
     {
@@ -24,5 +24,20 @@ public class PokemonStorageBoxes : MonoBehaviour
     public static PokemonStorageBoxes GetPlayerStorageBoxes()
     {
         return FindObjectOfType<PlayerController>().GetComponent<PokemonStorageBoxes>();
+    }
+
+    public IEnumerable<PokemonSaveData> GetAllPokemonData()
+    {
+        for (int i = 0; i < 16; i++)
+        {
+            for (int j = 0; j < 30; j++)
+            {
+                var pokemon = boxes[i, j];
+                if (pokemon != null)
+                {
+                    yield return pokemon.GetSaveData();
+                }
+            }
+        }
     }
 }

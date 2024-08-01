@@ -17,4 +17,4 @@ MonoBehaviour:
   icon: {fileID: 8020060226805192610, guid: 762c105d9aebcc047919c1a3bdfd76fe, type: 3}
   price: 0
   isSellable: 0
-  catchRateModfier: 1.5
+  catchRateModfier: 150

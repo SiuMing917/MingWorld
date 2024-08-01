@@ -130,7 +130,7 @@ public class PartyState : State<GameControlller>
 
             }
 
-            DynamicMenuState.i.MenuItems = new List<string>() { "能力概覽", "交換位置", "取消操作" };
+            DynamicMenuState.i.MenuItems = new List<string>() { "能力概覽", "交換位置", "退學" , "取消操作" };
             yield return gc.StateMachine.PushAndWait(DynamicMenuState.i);
             if(DynamicMenuState.i.SelectedItem == 0)
             {
@@ -144,6 +144,20 @@ public class PartyState : State<GameControlller>
                 isSwitchingPosition = true;
                 selectedIndexForSwitching = selectedPokemonIndex;
                 partyScreen.SetMessageText("請選擇要與當前學生交換位置的學生。");
+            }
+            else if (DynamicMenuState.i.SelectedItem == 2)
+            {
+                //刪除Pokemon
+                DynamicMenuState.i.MenuItems = new List<string>() { "確定退學", "取消操作" };
+                yield return gc.StateMachine.PushAndWait(DynamicMenuState.i);
+
+                if (DynamicMenuState.i.SelectedItem == 0)
+                {
+                    playerParty.RemovePokemon(playerParty.Pokemons[selectedPokemonIndex]);
+                    playerParty.PartyUpdated();
+                }
+                else
+                    yield break;
             }
             else
             {

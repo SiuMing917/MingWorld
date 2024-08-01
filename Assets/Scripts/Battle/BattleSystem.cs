@@ -282,8 +282,13 @@ public class BattleSystem : MonoBehaviour
             yield return dialogBox.TypeDialog($"成功拐騙{enemyUnit.Pokemon.Base.Name}!");
             yield return pokeball.DOFade(0, 1.5f).WaitForCompletion();
 
+            int currentPokemonNumb = PlayerParty.Pokemons.Count;
+
             PlayerParty.AddPokemon(enemyUnit.Pokemon);
-            yield return dialogBox.TypeDialog($"{enemyUnit.Pokemon.Base.Name}加入了你的小隊中");
+            if(currentPokemonNumb < 6)
+                yield return dialogBox.TypeDialog($"{enemyUnit.Pokemon.Base.Name}加入了你的小隊中");
+            else
+                yield return dialogBox.TypeDialog($"{enemyUnit.Pokemon.Base.Name}加入了你的學生待定區中");
 
             Destroy(pokeball);
             BattleOver(true);

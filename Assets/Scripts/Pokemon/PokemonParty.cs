@@ -61,7 +61,30 @@ public class PokemonParty : MonoBehaviour
         else
         {
             //要加入電腦中
+            for (int i = 0; i < 30; i++) {
+                if (PokemonStorageBoxes.GetPlayerStorageBoxes().GetPokemon(0, i) == null)
+                {
+                    PokemonStorageBoxes.GetPlayerStorageBoxes().AddPokemon(newPokemon,0, i);
+                    break;
+                }
+            }
         }
+    }
+
+    /// <summary>
+    /// 移出隊伍
+    /// </summary>
+    /// <param name="oldPokemon"></param>
+    public void RemovePokemon(Pokemon oldPokemon)
+    {
+        if (pokemons.Count > 1)
+        {
+            pokemons.Remove(oldPokemon);
+
+            //Pokemon移除時更新資料
+            OnUpdated?.Invoke();
+        }
+
     }
 
     /// <summary>

@@ -450,11 +450,19 @@ public class Pokemon
     {
         //初始暴擊值
         float critical = 1f;
+
         if (Random.Range(1f,100f) <= 5f)
         {
             critical = 2f;
         }
 
+        if(move.Base.CriticalRate != 0 && critical <= 1f)
+        {
+            if (Random.Range(1f,100f) <= move.Base.CriticalRate*1f)
+            {
+                critical = 2f;
+            }
+        }
         //Pokemon有兩個種屬性
         float type = TypeChart.GetEffectiveness(move.Base.Type, this.Base.Type1) * TypeChart.GetEffectiveness(move.Base.Type, this.Base.Type2);
 

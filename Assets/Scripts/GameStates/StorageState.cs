@@ -68,7 +68,7 @@ public class StorageState : State<GameControlller>
             var secondPokemon = storageUI.TakePokemonFromSlot(slotIndex);
             storageUI.SetMovingPokemonImage(slotIndex);
 
-            if (firstSlotIndex == secondSlotIndex || (secondPokemon == null && storageUI.IsPartySlot(firstSlotIndex) && storageUI.IsPartySlot(secondSlotIndex)))
+            if (secondPokemon == null && storageUI.IsPartySlot(firstSlotIndex) && storageUI.IsPartySlot(secondSlotIndex))
             {
                 storageUI.PutPokemonIntoSlot(selectedPokemonToMove, selectedSlotToMove);
 
@@ -78,18 +78,26 @@ public class StorageState : State<GameControlller>
                 return;
             }
 
-            if (party.Pokemons.Count > 1 || secondPokemon != null)
+            if (party.Pokemons.Count > 1 || !storageUI.IsPartySlot(firstSlotIndex))
             {
                 storageUI.PutPokemonIntoSlot(selectedPokemonToMove, secondSlotIndex);
+            }
+            else if(secondPokemon != null)
+            {
+                storageUI.PutPokemonIntoSlot(selectedPokemonToMove, secondSlotIndex);
+            }
+            else
+            {
+                storageUI.PutPokemonIntoSlot(selectedPokemonToMove, selectedSlotToMove);
+                storageUI.SetDataInStorageSlots();
+                storageUI.SetDataInPartySlots();
+
+                return;
             }
 
             if(secondPokemon != null)
             {
                 storageUI.PutPokemonIntoSlot(secondPokemon, firstSlotIndex);
-            }
-            else if(party.Pokemons.Count <= 1)
-            {
-                storageUI.PutPokemonIntoSlot(selectedPokemonToMove, selectedSlotToMove);
             }
 
             party.Pokemons.RemoveAll(p => p == null);

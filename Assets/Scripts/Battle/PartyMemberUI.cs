@@ -9,6 +9,7 @@ public class PartyMemberUI : MonoBehaviour
     [SerializeField] Text levelText;
     [SerializeField] HPBar hpBar;
     [SerializeField] Text messageText;
+    [SerializeField] Image pokemonImage;
 
     Pokemon _pokemon;
 
@@ -28,6 +29,7 @@ public class PartyMemberUI : MonoBehaviour
         nameText.text = _pokemon.Base.Name;
         levelText.text = "Lvl " + _pokemon.Level;
         hpBar.SetHP((float)_pokemon.HP / _pokemon.MaxHp);
+        pokemonImage.sprite = _pokemon.Base.FrontSprite;
     }
 
 

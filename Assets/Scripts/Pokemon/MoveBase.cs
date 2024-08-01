@@ -23,6 +23,8 @@ public class MoveBase : ScriptableObject
     [SerializeField] int priority;
     //能量消耗
     [SerializeField] int energy;
+    //暴擊率
+    [SerializeField] int criticalrate;
     //類別
     [SerializeField] MoveCategory category;
     //影响
@@ -120,6 +122,19 @@ public class MoveBase : ScriptableObject
         set
         {
             energy = value;
+        }
+    }
+
+    public int CriticalRate
+    {
+        get
+        {
+            return criticalrate;
+        }
+
+        set
+        {
+            criticalrate = value;
         }
     }
 

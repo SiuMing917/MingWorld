@@ -126,6 +126,7 @@ public class PlayerController : MonoBehaviour, ISavable
             position = new float[] { transform.position.x, transform.position.y },
             //玂 Pokemonン戈  讽玡HP单单
             pokemons = GetComponent<PokemonParty>().Pokemons.Select(p => p.GetSaveData()).ToList(),
+            storageboxes = PokemonStorageBoxes.GetPlayerStorageBoxes().GetAllPokemonData().ToList(),
         };
 
         return saveData;
@@ -146,6 +147,14 @@ public class PlayerController : MonoBehaviour, ISavable
         //LOAD Pokemon计沮
         //硄筁篶硑ㄧ计 盢戈更
         GetComponent<PokemonParty>().Pokemons = saveData.pokemons.Select(s => new Pokemon(s)).ToList();
+
+        var storageBoxes = PokemonStorageBoxes.GetPlayerStorageBoxes();
+        for (int i = 0; i < saveData.storageboxes.Count; i++)
+        {
+            var pokemonData = saveData.storageboxes[i];
+            var pokemon = new Pokemon(pokemonData);
+            storageBoxes.AddPokemon(pokemon, i / 30, i % 30);
+        }
     }
 
     public Character Character => character;
@@ -156,4 +165,5 @@ public class PlayerSaveData
 {
     public float[] position;
     public List<PokemonSaveData> pokemons;
+    public List<PokemonSaveData> storageboxes;
 }
