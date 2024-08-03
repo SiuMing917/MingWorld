@@ -13,14 +13,14 @@ MonoBehaviour:
   m_Name: "\u653E\u96FB"
   m_EditorClassIdentifier: 
   name: "\u653E\u96FB"
-  description: "\u81EA\u8EAB\u7B49\u7D1A\u8D8A\u9AD8\uFF0C\u53EF\u4EE5\u91CB\u653E\u7684\u4EA4\u6D41\u96FB\u8D8A\u591A"
+  description: "\u81EA\u8EAB\u7B49\u7D1A\u8D8A\u9AD8\uFF0C\u53EF\u4EE5\u91CB\u653E\u7684\u4EA4\u6D41\u96FB\u8D8A\u591A\uFF0C\u5C0D\u6575\u4EBA\u9020\u6210\u8207\u81EA\u8EAB\u7B49\u7D1A\u76F8\u540C\u7684\u50B7\u5BB3\u3002"
   type: 0
   power: 0
-  accuracy: 0
+  accuracy: 100
   alwaysHit: 0
-  pp: 0
+  pp: 15
   priority: 0
-  energy: 0
+  energy: 5
   criticalrate: 0
   category: 0
   effects:
@@ -31,7 +31,7 @@ MonoBehaviour:
   secondaries: []
   target: 0
   movespecial:
-    withLevel: 0
+    withLevel: 1
     withEnergy: 0
     withBoosts: 0
     withStats: 0
@@ -52,7 +52,8 @@ MonoBehaviour:
     copyMove: 0
     makeDeath: 0
     makeProtect: 0
-    moveValue1: 0
+    makeRandom: 0
+    moveValue1: 1
     moveValue2: 0
     moveValue3: 0
   sound: {fileID: 0}

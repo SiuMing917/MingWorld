@@ -334,6 +334,7 @@ public class MoveSpecial
     [SerializeField] bool copyMove = false;
     [SerializeField] bool makeDeath = false;
     [SerializeField] bool makeProtect = false;
+    [SerializeField] bool makeRandom = false;
 
 
 
@@ -498,6 +499,14 @@ public class MoveSpecial
         get
         {
             return makeProtect;
+        }
+    }
+
+    public bool MakeRandom
+    {
+        get
+        {
+            return makeRandom;
         }
     }
 

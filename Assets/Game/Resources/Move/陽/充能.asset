@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: "\u5145\u80FD"
   description: "\u53EF\u4EE5\u5F3A\u5316\u81EA\u8EAB\u7684\u9B54\u6CD5\u548C\u9B54\u9632"
-  type: 0
+  type: 13
   power: 0
   accuracy: 0
   alwaysHit: 1
@@ -37,7 +37,7 @@ MonoBehaviour:
   movespecial:
     withLevel: 0
     withEnergy: 0
-    withStatus: 0
+    withBoosts: 0
     withStats: 0
     withHp: 0
     withPp: 0
@@ -45,7 +45,7 @@ MonoBehaviour:
     withUserType: 0
     withTargetType: 0
     withDamage: 0
-    clearStatus: 0
+    clearBoosts: 0
     copyStatus: 0
     increaseHp: 0
     decreaseHp: 0
@@ -56,6 +56,7 @@ MonoBehaviour:
     copyMove: 0
     makeDeath: 0
     makeProtect: 0
+    makeRandom: 0
     moveValue1: 0
     moveValue2: 0
     moveValue3: 0

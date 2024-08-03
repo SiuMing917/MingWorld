@@ -497,6 +497,20 @@ public class Pokemon
         float attack = (move.Base.Category == MoveCategory.Special) ? attacker.SpAttack : attacker.Attack;
         float defense = (move.Base.Category == MoveCategory.Special) ? SpDefense : Defense;
 
+        if(move.Base.MoveSpecial.WithStats && move.Base.MoveSpecial.MoveValue1== 3)//攻防計算轉換。
+        {
+            if(move.Base.MoveSpecial.MoveValue2 == 1)
+            {
+                attack = (move.Base.Category == MoveCategory.Special) ? attacker.SpAttack : attacker.Attack;
+                defense = (move.Base.Category == MoveCategory.Special) ? Defense : SpDefense;
+            }
+            if(move.Base.MoveSpecial.MoveValue2 == 2)//用防禦計算攻擊力
+            {
+                attack = (move.Base.Category == MoveCategory.Special) ? attacker.SpDefense : attacker.Defense;
+                defense = (move.Base.Category == MoveCategory.Special) ? SpDefense : Defense;
+            }
+        }
+
         float modifiers = Random.Range(0.85f, 1f) * type * critical;
         float a = (2 * attacker.Level + 10) / 250f;
         float d = a * move.Base.Power * ((float)attack / defense) + 2;
@@ -555,6 +569,16 @@ public class Pokemon
 
                  d = a * move.Base.Power * DamageRatio * ((float)attack / defense) + 2;
             }
+        }
+        else if(move.Base.MoveSpecial.MakeRandom && move.Base.MoveSpecial.MoveValue1 == 1)//威力隨機，Range係Value2同Value3的數之間
+        {
+            int RandomPower = Random.Range(move.Base.MoveSpecial.MoveValue2, move.Base.MoveSpecial.MoveValue3);
+            d = a * RandomPower * ((float)attack / defense) + 2;
+        }
+        else if (move.Base.MoveSpecial.WithPp && move.Base.MoveSpecial.MoveValue1 == 2)//PP剩餘越少，威力越大（提升Value2）。
+        {
+            int NewPower = move.Base.Power + ((move.Base.PP - move.PP) * move.Base.MoveSpecial.MoveValue2);
+            d = a * NewPower * ((float)attack / defense) + 2;
         }
         else//Default傷害計算
         {

@@ -15,17 +15,45 @@ MonoBehaviour:
   name: "\u885D\u6D6A"
   description: "\u885D\u6D6A"
   type: 3
-  power: 90
+  power: 70
   accuracy: 100
   alwaysHit: 0
   pp: 10
   priority: 0
-  energy: 70
+  energy: 8
+  criticalrate: 0
   category: 1
   effects:
     boosts: []
     status: 0
     volatileStatus: 0
+    selfeffect: 0
   secondaries: []
   target: 0
+  movespecial:
+    withLevel: 0
+    withEnergy: 0
+    withBoosts: 0
+    withStats: 0
+    withHp: 0
+    withPp: 0
+    withMoveType: 0
+    withUserType: 0
+    withTargetType: 0
+    withDamage: 0
+    clearBoosts: 0
+    copyStatus: 0
+    increaseHp: 0
+    decreaseHp: 0
+    increaseEnergy: 0
+    decreaseEnergy: 0
+    increasePp: 0
+    decreasePp: 0
+    copyMove: 0
+    makeDeath: 0
+    makeProtect: 0
+    makeRandom: 0
+    moveValue1: 0
+    moveValue2: 0
+    moveValue3: 0
   sound: {fileID: 8300000, guid: 850b4c19d3f601043a4d02b66958d65c, type: 3}

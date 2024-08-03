@@ -13,16 +13,16 @@ MonoBehaviour:
   m_Name: "\u6B21\u5143\u65AC"
   m_EditorClassIdentifier: 
   name: "\u6B21\u5143\u65AC"
-  description: "\u4E00\u5B9A\u547D\u4E2D\uFF0C\u5A01\u529B\u6975\u5927\uFF0C\u4F46\u975E\u5E38\u6D88\u8017\u80FD\u91CF\u3002"
+  description: "\u5A01\u529B\u6975\u5927\uFF0C\u4F46\u975E\u5E38\u6D88\u8017\u80FD\u91CF\uFF0C\u547D\u4E2D\u7387\u8F03\u4F4E\u3002"
   type: 12
   power: 300
-  accuracy: 0
-  alwaysHit: 1
+  accuracy: 50
+  alwaysHit: 0
   pp: 5
   priority: 0
-  energy: 50
+  energy: 40
   criticalrate: 0
-  category: 0
+  category: 1
   effects:
     boosts: []
     status: 0
@@ -33,7 +33,7 @@ MonoBehaviour:
   movespecial:
     withLevel: 0
     withEnergy: 0
-    withStatus: 0
+    withBoosts: 0
     withStats: 0
     withHp: 0
     withPp: 0
@@ -41,7 +41,7 @@ MonoBehaviour:
     withUserType: 0
     withTargetType: 0
     withDamage: 0
-    clearStatus: 0
+    clearBoosts: 0
     copyStatus: 0
     increaseHp: 0
     decreaseHp: 0
@@ -52,6 +52,7 @@ MonoBehaviour:
     copyMove: 0
     makeDeath: 0
     makeProtect: 0
+    makeRandom: 0
     moveValue1: 0
     moveValue2: 0
     moveValue3: 0

@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b459839e87bb9fa48ae7cdc761fcb218, type: 3}
   m_Name: "\u71B1\u8840\u71C3\u71D2"
   m_EditorClassIdentifier: 
-  name: 
-  description: 
-  type: 0
+  name: "\u71B1\u8840\u71C3\u71D2"
+  description: "\u71B1\u8840\u71C3\u71D2\uFF0C\u6263\u9664\u81EA\u8EAB40%\u7684\u6700\u5927HP\uFF0C\u5927\u5E45\u5EA6\u63D0\u9AD8\u653B\u64CA\u548C\u9B54\u6CD5\u3002"
+  type: 2
   power: 0
   accuracy: 0
   alwaysHit: 0
@@ -22,18 +22,22 @@ MonoBehaviour:
   priority: 0
   energy: 0
   criticalrate: 0
-  category: 0
+  category: 2
   effects:
-    boosts: []
+    boosts:
+    - stat: 0
+      boost: 2
+    - stat: 2
+      boost: 2
     status: 0
     volatileStatus: 0
-    selfeffect: 0
+    selfeffect: 1
   secondaries: []
-  target: 0
+  target: 1
   movespecial:
     withLevel: 0
     withEnergy: 0
-    withStatus: 0
+    withBoosts: 0
     withStats: 0
     withHp: 0
     withPp: 0
@@ -41,10 +45,10 @@ MonoBehaviour:
     withUserType: 0
     withTargetType: 0
     withDamage: 0
-    clearStatus: 0
+    clearBoosts: 0
     copyStatus: 0
     increaseHp: 0
-    decreaseHp: 0
+    decreaseHp: 1
     increaseEnergy: 0
     decreaseEnergy: 0
     increasePp: 0
@@ -52,7 +56,8 @@ MonoBehaviour:
     copyMove: 0
     makeDeath: 0
     makeProtect: 0
-    moveValue1: 0
-    moveValue2: 0
+    makeRandom: 0
+    moveValue1: 2
+    moveValue2: 40
     moveValue3: 0
   sound: {fileID: 0}

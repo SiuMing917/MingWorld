@@ -12,22 +12,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b459839e87bb9fa48ae7cdc761fcb218, type: 3}
   m_Name: "\u56E0\u9640\u7F85\u306E\u77E2"
   m_EditorClassIdentifier: 
-  name: 
-  description: 
-  type: 0
-  power: 0
-  accuracy: 0
+  name: "\u56E0\u9640\u7F85\u306E\u77E2"
+  description: "\u56E0\u9640\u7F85\u306E\u77E2\uFF0C\u96C6\u4E2D\u5C3E\u7378\u4E4B\u529B\u767C\u52D5\u7684\u8D85\u5F3A\u653B\u64CA\uFF0C\u4F7F\u7528\u5F8C\u81EA\u8EAB\u9B54\u6CD5\u6703\u5DE8\u5E45\u4E0B\u964D"
+  type: 4
+  power: 200
+  accuracy: 100
   alwaysHit: 0
   pp: 0
   priority: 0
-  energy: 0
+  energy: 30
   criticalrate: 0
-  category: 0
+  category: 1
   effects:
-    boosts: []
+    boosts:
+    - stat: 2
+      boost: -3
     status: 0
     volatileStatus: 0
-    selfeffect: 0
+    selfeffect: 1
   secondaries: []
   target: 0
   movespecial:
@@ -52,6 +54,7 @@ MonoBehaviour:
     copyMove: 0
     makeDeath: 0
     makeProtect: 0
+    makeRandom: 0
     moveValue1: 0
     moveValue2: 0
     moveValue3: 0
