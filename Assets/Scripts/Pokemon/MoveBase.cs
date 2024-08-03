@@ -314,7 +314,7 @@ public class MoveSpecial
 {
     [SerializeField] bool withLevel = false;
     [SerializeField] bool withEnergy = false;
-    [SerializeField] bool withStatus = false;
+    [SerializeField] bool withBoosts = false;
     [SerializeField] bool withStats = false;
     [SerializeField] bool withHp = false;
     [SerializeField] bool withPp = false;
@@ -323,7 +323,7 @@ public class MoveSpecial
     [SerializeField] bool withTargetType = false;
     [SerializeField] bool withDamage = false;
 
-    [SerializeField] bool clearStatus = false;
+    [SerializeField] bool clearBoosts = false;
     [SerializeField] bool copyStatus = false;
     [SerializeField] bool increaseHp = false;
     [SerializeField] bool decreaseHp = false;
@@ -355,11 +355,11 @@ public class MoveSpecial
             return withEnergy;
         }
     }
-    public bool WithStatus
+    public bool WithBoosts
     {
         get
         {
-            return withStatus;
+            return withBoosts;
         }
     }
     public bool WithStats
@@ -413,11 +413,11 @@ public class MoveSpecial
         }
     }
 
-    public bool ClearStatus
+    public bool ClearBoosts
     {
         get
         {
-            return clearStatus;
+            return clearBoosts;
         }
     }
 

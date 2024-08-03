@@ -466,6 +466,12 @@ public class Pokemon
             }
         }
 
+        if(move.Base.MoveSpecial.ClearBoosts && move.Base.MoveSpecial.MoveValue1 == 3)
+        {
+            attacker.ResetStatBoost();
+            ResetStatBoost();
+        }
+
         //檢測當前是否為保護狀態
         if(CurrentMove.Base.MoveSpecial.MakeProtect && CurrentMove.Base.MoveSpecial.MoveValue1==1) // 1：完全防止傷害 2：至少保留1滴血
         {
@@ -556,10 +562,14 @@ public class Pokemon
         }
 
 
-
         int damage = Mathf.FloorToInt(d * modifiers);
 
-        if(isprotected)
+        if (move.Base.MoveSpecial.WithLevel && move.Base.MoveSpecial.MoveValue1 == 1)
+        {
+            damage = attacker.Level;
+        }
+
+        if (isprotected)
         {
             damage = 0;
         }
