@@ -21,6 +21,9 @@ public class RunTurnState : State<BattleSystem>
     PokemonParty trainerParty;
 
     BattleSystem bs;
+
+    bool isPlayerFirst;
+
     public override void Enter(BattleSystem owner)
     {
         bs = owner;
@@ -64,13 +67,31 @@ public class RunTurnState : State<BattleSystem>
 
             enemyUnit.Pokemon.CurrentMove = enemyUnit.Pokemon.GetRandomMove();
 
+            //記錄對手使用的技能
+            bs.prevMoveSelfUsed = playerUnit.Pokemon.CurrentMove;
+            bs.prevMoveTargetUsed = enemyUnit.Pokemon.CurrentMove;
+
+            if(playerUnit.Pokemon.CurrentMove.Base.MoveSpecial.CopyMove && playerUnit.Pokemon.CurrentMove.Base.MoveSpecial.MoveValue1 == 1)
+            {
+                playerUnit.Pokemon.CurrentMove = bs.prevMoveTargetUsed;
+            }
+            if(enemyUnit.Pokemon.CurrentMove.Base.MoveSpecial.CopyMove && enemyUnit.Pokemon.CurrentMove.Base.MoveSpecial.MoveValue1 == 1)
+            {
+                enemyUnit.Pokemon.CurrentMove = bs.prevMoveSelfUsed;
+            }
 
             int playerMovePriority = playerUnit.Pokemon.CurrentMove.Base.Priority;
             int enemyMovePriority = enemyUnit.Pokemon.CurrentMove.Base.Priority;
             //判斷行動優先級
             bool playerGoesFirst = true;
+            isPlayerFirst = true;//public用
+
             if (enemyMovePriority > playerMovePriority)
+            {
                 playerGoesFirst = false;
+                isPlayerFirst = false;
+            }
+
             else if (enemyMovePriority == playerMovePriority)
                 playerGoesFirst = playerUnit.Pokemon.Speed >= enemyUnit.Pokemon.Speed;
 
@@ -187,6 +208,19 @@ public class RunTurnState : State<BattleSystem>
             {
                 //Pokemon HP如果等於0 就退場
                 var damageDetails = targetUnit.Pokemon.TakeDamage(move, sourceUnit.Pokemon);
+                /*
+                if(move.Base.MoveSpecial.CopyMove && move.Base.MoveSpecial.MoveValue1 == 1)//複製對手正在使用的技能
+                {
+                    if(isPlayerFirst)
+                        damageDetails = targetUnit.Pokemon.TakeDamage(bs.prevMoveTargetUsed, sourceUnit.Pokemon);
+                    else
+                        damageDetails = targetUnit.Pokemon.TakeDamage(bs.prevMoveSelfUsed, sourceUnit.Pokemon);
+                }
+                else
+                {
+                    damageDetails = targetUnit.Pokemon.TakeDamage(move, sourceUnit.Pokemon);
+                }
+                */
                 //HP變化，UI更新
                 yield return targetUnit.Hud.WaitForHPUpdate();
                 yield return ShowDamgeDetails(damageDetails);

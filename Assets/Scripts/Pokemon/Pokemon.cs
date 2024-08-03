@@ -450,6 +450,8 @@ public class Pokemon
     {
         //初始暴擊值
         float critical = 1f;
+        bool isprotected = false;
+        bool isnotdie = false;
 
         if (Random.Range(1f,100f) <= 5f)
         {
@@ -463,6 +465,18 @@ public class Pokemon
                 critical = 2f;
             }
         }
+
+        //檢測當前是否為保護狀態
+        if(CurrentMove.Base.MoveSpecial.MakeProtect && CurrentMove.Base.MoveSpecial.MoveValue1==1) // 1：完全防止傷害 2：至少保留1滴血
+        {
+            isprotected = true;
+        }
+
+        if (CurrentMove.Base.MoveSpecial.MakeProtect && CurrentMove.Base.MoveSpecial.MoveValue1 == 2) // 1：完全防止傷害 2：至少保留1滴血
+        {
+            isnotdie = true;
+        }
+
         //Pokemon有兩個種屬性
         float type = TypeChart.GetEffectiveness(move.Base.Type, this.Base.Type1) * TypeChart.GetEffectiveness(move.Base.Type, this.Base.Type2);
 
@@ -480,9 +494,120 @@ public class Pokemon
         float modifiers = Random.Range(0.85f, 1f) * type * critical;
         float a = (2 * attacker.Level + 10) / 250f;
         float d = a * move.Base.Power * ((float)attack / defense) + 2;
+        if (move.Base.MoveSpecial.WithHp && move.Base.MoveSpecial.MoveValue1 == 1)//HP越少，威力越大
+        {
+
+            float moveDamagePower = (float)move.Base.Power * (1f-((float)(attacker.HP)/(float)attacker.MaxHp));
+            d = a * moveDamagePower * ((float)attack / defense) + 2;
+        }
+        else if(move.Base.MoveSpecial.WithHp && move.Base.MoveSpecial.MoveValue1 == 2)//HP越多，威力越大
+        {
+            float moveDamagePower = (float)move.Base.Power * (((float)(attacker.HP) / (float)attacker.MaxHp));
+            d = a * moveDamagePower * ((float)attack / defense) + 2;
+        }
+        else if(move.Base.MoveSpecial.WithStats && move.Base.MoveSpecial.MoveValue1 == 1)//Stats 攻擊者大於被攻擊
+        {
+            if (move.Base.MoveSpecial.MoveValue3 == 0)//由Base Power叠加
+            {
+                int AttackStats = 0;
+                int PokemonStats = 0;
+                float DamageRatio = 1f;
+                if (move.Base.MoveSpecial.MoveValue2 == 1)//攻擊
+                {
+                    AttackStats = attacker.Attack;
+                    PokemonStats = Attack;
+                }
+                else if (move.Base.MoveSpecial.MoveValue2 == 2)//防禦
+                {
+                    AttackStats = attacker.Defense;
+                    PokemonStats = Defense;
+                }
+                else if (move.Base.MoveSpecial.MoveValue2 == 3)//魔法
+                {
+                    AttackStats = attacker.SpAttack;
+                    PokemonStats = SpAttack;
+                }
+                else if (move.Base.MoveSpecial.MoveValue2 == 4)//魔防
+                {
+                    AttackStats = attacker.SpDefense;
+                    PokemonStats = SpDefense;
+                }
+                else if (move.Base.MoveSpecial.MoveValue2 == 5)//速度
+                {
+                    AttackStats = attacker.Speed;
+                    PokemonStats = Speed;
+                }
+
+                if(AttackStats <= PokemonStats)
+                {
+                    DamageRatio = 1f;
+                }
+                else
+                {
+                    DamageRatio = 0.2f + ((float)AttackStats/PokemonStats);
+                }
+
+                 d = a * move.Base.Power * DamageRatio * ((float)attack / defense) + 2;
+            }
+        }
+        else//Default傷害計算
+        {
+            d = a * move.Base.Power * ((float)attack / defense) + 2;
+        }
+
+
+
         int damage = Mathf.FloorToInt(d * modifiers);
 
+        if(isprotected)
+        {
+            damage = 0;
+        }
+
+        if (isnotdie)
+        {
+            if(damage >= HP)
+                damage = HP - 1;
+        }
+
         DecreaseHP(damage);
+
+        //附帶吸血效果類攻擊技能
+        if(move.Base.MoveSpecial.IncreaseHp && move.Base.MoveSpecial.MoveValue1 == 1)//Value1： 1 =>傷害帶回血 2=>非攻擊類帶回血
+        {
+            attacker.IncreaseHP(Mathf.FloorToInt(damage * move.Base.MoveSpecial.MoveValue2 * 0.01f)); // Value 2: 回復HP量
+        }
+
+        //純回血技能技能
+        if (move.Base.MoveSpecial.IncreaseHp && move.Base.MoveSpecial.MoveValue1 == 2)//Value1： 1 =>攻擊帶回血 2=>非攻擊類帶回血
+        {
+            if (move.Base.MoveSpecial.MoveValue2 > 0)//回血比例（最大HP）
+            {
+                attacker.IncreaseHP(Mathf.FloorToInt(MaxHp * move.Base.MoveSpecial.MoveValue2 * 0.01f));
+            }
+            else if (move.Base.MoveSpecial.MoveValue3 > 0)//固定回血量
+            {
+                attacker.IncreaseHP(move.Base.MoveSpecial.MoveValue3);
+            }
+        }
+        //純扣血技能技能
+        if (move.Base.MoveSpecial.IncreaseHp && move.Base.MoveSpecial.MoveValue1 == 2)
+        {
+            if (move.Base.MoveSpecial.MoveValue2 > 0)//扣血比例（最大HP）
+            {
+                attacker.DecreaseHP(Mathf.FloorToInt(MaxHp * move.Base.MoveSpecial.MoveValue2 * 0.01f));
+            }
+            else if (move.Base.MoveSpecial.MoveValue3 > 0)//固定扣血量
+            {
+                attacker.DecreaseHP(move.Base.MoveSpecial.MoveValue3);
+            }
+        }
+
+        //附帶自殘效果類攻擊技能
+        if (move.Base.MoveSpecial.DecreaseHp && move.Base.MoveSpecial.MoveValue1 == 1)// Value 1： 1 =>傷害自殘 2=>非攻擊類帶自殘
+        {
+            attacker.DecreaseHP(Mathf.FloorToInt(damage * move.Base.MoveSpecial.MoveValue2 * 0.01f)); // Value 2: 自殘HP量
+        }
 
         return damageDetails;
     }

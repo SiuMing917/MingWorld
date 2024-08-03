@@ -32,6 +32,9 @@ public class MoveBase : ScriptableObject
     [SerializeField] List<SecondaryEffects> secondaries;
     [SerializeField] MoveTarget target;
 
+    //隨機相關
+    [SerializeField] MoveSpecial movespecial;
+
 
     [SerializeField] AudioClip sound;
 
@@ -196,25 +199,19 @@ public class MoveBase : ScriptableObject
 
     public AudioClip Sound => sound;
 
-
-    //改爲 MoveCategory
-    //public bool IsSpecial
-    //{
-    //    get
-    //    {
-    //        if (type == PokemonType.火 || type == PokemonType.水 || type == PokemonType.氷 || type == PokemonType.Electric电
-    //          || type == PokemonType.草 || type == PokemonType.龙)
-    //        {
-    //            return true;
-    //        }
-    //        else
-    //        { return false; }
-    //    }
-
-    //}
-
+    /// <summary>
+    /// 隨機
+    /// </summary>
+    public MoveSpecial MoveSpecial
+    {
+        get
+        {
+            return movespecial;
+        }
+    }
 
 }
+
 
 /// <summary>
 /// 技能效果
@@ -310,4 +307,222 @@ public enum MoveCategory
 public enum MoveTarget
 {
     Foe, Self
+}
+
+[System.Serializable]
+public class MoveSpecial
+{
+    [SerializeField] bool withLevel = false;
+    [SerializeField] bool withEnergy = false;
+    [SerializeField] bool withStatus = false;
+    [SerializeField] bool withStats = false;
+    [SerializeField] bool withHp = false;
+    [SerializeField] bool withPp = false;
+    [SerializeField] bool withMoveType = false;
+    [SerializeField] bool withUserType = false;
+    [SerializeField] bool withTargetType = false;
+    [SerializeField] bool withDamage = false;
+
+    [SerializeField] bool clearStatus = false;
+    [SerializeField] bool copyStatus = false;
+    [SerializeField] bool increaseHp = false;
+    [SerializeField] bool decreaseHp = false;
+    [SerializeField] bool increaseEnergy = false;
+    [SerializeField] bool decreaseEnergy = false;
+    [SerializeField] bool increasePp = false;
+    [SerializeField] bool decreasePp = false;
+    [SerializeField] bool copyMove = false;
+    [SerializeField] bool makeDeath = false;
+    [SerializeField] bool makeProtect = false;
+
+
+
+    [SerializeField] int moveValue1 = 0;
+    [SerializeField] int moveValue2 = 0;
+    [SerializeField] int moveValue3 = 0;
+
+    public bool WithLevel
+    {
+        get
+        {
+            return withLevel;
+        }
+    }
+    public bool WithEnergy
+    {
+        get
+        {
+            return withEnergy;
+        }
+    }
+    public bool WithStatus
+    {
+        get
+        {
+            return withStatus;
+        }
+    }
+    public bool WithStats
+    {
+        get
+        {
+            return withStats;
+        }
+    }
+
+    public bool WithHp
+    {
+        get
+        {
+            return withHp;
+        }
+    }
+    public bool WithPp
+    {
+        get
+        {
+            return withPp;
+        }
+    }
+    public bool WithMoveType
+    {
+        get
+        {
+            return withMoveType;
+        }
+    }
+    public bool WithUserType
+    {
+        get
+        {
+            return withUserType;
+        }
+    }
+    public bool WithTargetType
+    {
+        get
+        {
+            return withTargetType;
+        }
+    }
+    public bool WithDamage
+    {
+        get
+        {
+            return withDamage;
+        }
+    }
+
+    public bool ClearStatus
+    {
+        get
+        {
+            return clearStatus;
+        }
+    }
+
+    public bool CopyStatus
+    {
+        get
+        {
+            return copyStatus;
+        }
+    }
+
+    public bool IncreaseHp
+    {
+        get
+        {
+            return increaseHp;
+        }
+    }
+
+    public bool DecreaseHp
+    {
+        get
+        {
+            return decreaseHp;
+        }
+    }
+
+    public bool IncreaseEnergy
+    {
+        get
+        {
+            return increaseEnergy;
+        }
+    }
+
+    public bool DecreaseEnergy
+    {
+        get
+        {
+            return decreaseEnergy;
+        }
+    }
+
+    public bool IncreasePp
+    {
+        get
+        {
+            return increasePp;
+        }
+    }
+
+    public bool DecreasePp
+    {
+        get
+        {
+            return decreasePp;
+        }
+    }
+
+    public bool CopyMove
+    {
+        get
+        {
+            return copyMove;
+        }
+    }
+
+    public bool MakeDeath
+    {
+        get
+        {
+            return makeDeath;
+        }
+    }
+
+    public bool MakeProtect
+    {
+        get
+        {
+            return makeProtect;
+        }
+    }
+
+    public int MoveValue1
+    {
+        get
+        {
+            return moveValue1;
+        }
+    }
+
+    public int MoveValue2
+    {
+        get
+        {
+            return moveValue2;
+        }
+    }
+
+    public int MoveValue3
+    {
+        get
+        {
+            return moveValue3;
+        }
+    }
+
 }

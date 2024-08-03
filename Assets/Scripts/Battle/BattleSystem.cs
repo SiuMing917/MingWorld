@@ -43,6 +43,10 @@ public class BattleSystem : MonoBehaviour
     [Header("共用技能")]
     [SerializeField] List<MoveBase> defaultMoveBases;
 
+    [Header("技能判定相關")]
+    public Move prevMoveTargetUsed;
+    public Move prevMoveSelfUsed;
+
     //區分戰鬥是否勝利或者失敗  事件用來觸發
     public event Action<bool> OnBattleOver;
 
@@ -86,6 +90,7 @@ public class BattleSystem : MonoBehaviour
 
         AudioManager.i.PlayMusic(wildBattleMusic);
 
+
         StartCoroutine(SetupBattle());
     }
 
@@ -118,6 +123,10 @@ public class BattleSystem : MonoBehaviour
         //開始不顯示戰鬥UI
         playerUnit.Clear();
         enemyUnit.Clear();
+
+        //將前一個對手和自己使用技能Initialize做掙扎
+        prevMoveSelfUsed = new Move(defaultMoveBases[0]);
+        prevMoveTargetUsed = new Move(defaultMoveBases[0]);
 
         //決定戰鬥背景
         backgroundImage.sprite = grassBackground;//Initialize先，之後再決定用邊個
@@ -349,4 +358,6 @@ public class BattleSystem : MonoBehaviour
     public PartyScreen PartyScreen => partyScreen;
 
     public AudioClip BattleVictoryMusic => battleVictoryMusic;
+
+    public Move PrevMoveTargetUsed => prevMoveTargetUsed;
 }

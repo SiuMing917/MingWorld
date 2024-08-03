@@ -20,7 +20,7 @@ MonoBehaviour:
   alwaysHit: 0
   pp: 0
   priority: 0
-  energy: 5
+  energy: 2
   criticalrate: 0
   category: 2
   effects:
@@ -29,7 +29,32 @@ MonoBehaviour:
       boost: 1
     status: 0
     volatileStatus: 0
-    selfeffect: 0
+    selfeffect: 1
   secondaries: []
   target: 0
+  movespecial:
+    withLevel: 0
+    withEnergy: 0
+    withStatus: 0
+    withStats: 0
+    withHp: 0
+    withPp: 0
+    withMoveType: 0
+    withUserType: 0
+    withTargetType: 0
+    withDamage: 0
+    clearStatus: 0
+    copyStatus: 0
+    increaseHp: 0
+    decreaseHp: 0
+    increaseEnergy: 0
+    decreaseEnergy: 0
+    increasePp: 0
+    decreasePp: 0
+    copyMove: 0
+    makeDeath: 0
+    makeProtect: 0
+    moveValue1: 0
+    moveValue2: 0
+    moveValue3: 0
   sound: {fileID: 0}

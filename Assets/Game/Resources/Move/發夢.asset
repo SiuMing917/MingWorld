@@ -13,24 +13,50 @@ MonoBehaviour:
   m_Name: "\u767C\u5922"
   m_EditorClassIdentifier: 
   name: "\u767C\u5922"
-  description: "\u767C\u5922"
-  type: 0
+  description: "\u53EF\u4EE5\u5927\u5E45\u5EA6\u5F3A\u5316\u81EA\u8EAB\u9632\u79A6\u548C\u9B54\u9632\uFF0C\u4F46\u6703\u9032\u5165\u767C\u7672\u72C0\u614B\u3002"
+  type: 1
   power: 0
   accuracy: 0
   alwaysHit: 1
   pp: 30
   priority: 0
-  energy: 0
+  energy: 5
+  criticalrate: 0
   category: 2
   effects:
     boosts:
     - stat: 1
-      boost: 1
+      boost: 2
     - stat: 3
-      boost: 1
+      boost: 2
     status: 0
     volatileStatus: 6
     selfeffect: 1
   secondaries: []
   target: 1
+  movespecial:
+    withLevel: 0
+    withEnergy: 0
+    withStatus: 0
+    withStats: 0
+    withHp: 0
+    withPp: 0
+    withMoveType: 0
+    withUserType: 0
+    withTargetType: 0
+    withDamage: 0
+    clearStatus: 0
+    copyStatus: 0
+    increaseHp: 0
+    decreaseHp: 0
+    increaseEnergy: 0
+    decreaseEnergy: 0
+    increasePp: 0
+    decreasePp: 0
+    copyMove: 0
+    makeDeath: 0
+    makeProtect: 0
+    moveValue1: 0
+    moveValue2: 0
+    moveValue3: 0
   sound: {fileID: 8300000, guid: 4196724cb23697b488bb8a5301988c71, type: 3}

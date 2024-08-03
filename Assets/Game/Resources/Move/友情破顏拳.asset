@@ -13,19 +13,56 @@ MonoBehaviour:
   m_Name: "\u53CB\u60C5\u7834\u984F\u62F3"
   m_EditorClassIdentifier: 
   name: "\u53CB\u60C5\u7834\u984F\u62F3"
-  description: "\u53CB\u60C5\u7834\u984F\u62F3"
+  description: "\u53CB\u60C5\u7834\u984F\u62F3\uFF0C\u66F4\u5148\u4E00\u6B65\u767C\u52D5\u653B\u64CA\uFF0C\u5FC5\u5B9A\u547D\u4E2D\u5C0D\u624B\uFF0C\u4E26\u4E14\u964D\u4F4E\u5C0D\u624B\u7684\u9632\u79A6\u548C\u9B54\u9632\u3002"
   type: 7
-  power: 40
+  power: 30
   accuracy: 100
   alwaysHit: 1
   pp: 20
   priority: 1
-  energy: 5
+  energy: 8
+  criticalrate: 0
   category: 0
   effects:
     boosts: []
     status: 0
     volatileStatus: 0
-  secondaries: []
+    selfeffect: 0
+  secondaries:
+  - boosts:
+    - stat: 3
+      boost: -1
+    - stat: 1
+      boost: -1
+    status: 0
+    volatileStatus: 0
+    selfeffect: 0
+    change: 0
+    target: 0
   target: 0
+  movespecial:
+    withLevel: 0
+    withEnergy: 0
+    withStatus: 0
+    withStats: 0
+    withHp: 0
+    withPp: 0
+    withMoveType: 0
+    withUserType: 0
+    withTargetType: 0
+    withDamage: 0
+    clearStatus: 0
+    copyStatus: 0
+    increaseHp: 0
+    decreaseHp: 0
+    increaseEnergy: 0
+    decreaseEnergy: 0
+    increasePp: 0
+    decreasePp: 0
+    copyMove: 0
+    makeDeath: 0
+    makeProtect: 0
+    moveValue1: 0
+    moveValue2: 0
+    moveValue3: 0
   sound: {fileID: 8300000, guid: dcc8b7b348cfe2e45a18250865dab226, type: 3}
