@@ -70,7 +70,7 @@ public class ConditionDB : MonoBehaviour
 
         },
         {
-             ConditionID.封印,
+        ConditionID.封印,
             new Condition()
             {
                 Name ="封印",

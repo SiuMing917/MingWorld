@@ -88,6 +88,12 @@ public class Pokemon
     /// </summary>
     public event System.Action OnENERGYChanged;
 
+    public int AllBoostsPosCount = 0;
+
+    public bool lockEnegy = false;
+
+    public bool mustHit = false;
+
     public void Init()
     {
 
@@ -258,6 +264,8 @@ public class Pokemon
             {Stat.命中率,0 },
             {Stat.閃避率,0 }
         };
+
+        AllBoostsPosCount = 0;
     }
 
     /// <summary>
@@ -284,7 +292,6 @@ public class Pokemon
         return statVal;
     }
 
-
     /// <summary>
     /// 把List的值存到 字典集合中(賦予效果等級和類型)
     /// </summary>
@@ -303,6 +310,12 @@ public class Pokemon
                 StatusChanges.Enqueue($"{Base.Name}的{stat}降低了");
 
             StatBoosts[stat] = Mathf.Clamp(StatBoosts[stat] + boost, -6, 6);
+
+            AllBoostsPosCount += StatBoosts[stat];
+            if(AllBoostsPosCount <= 0)
+            {
+                AllBoostsPosCount = 0;
+            }
 
             Debug.Log($"{stat}變化了{StatBoosts[stat]}");
         }
@@ -452,6 +465,9 @@ public class Pokemon
         float critical = 1f;
         bool isprotected = false;
         bool isnotdie = false;
+        
+        mustHit = false;
+        lockEnegy = false;
 
         if (Random.Range(1f,100f) <= 5f)
         {
@@ -514,6 +530,26 @@ public class Pokemon
         float modifiers = Random.Range(0.85f, 1f) * type * critical;
         float a = (2 * attacker.Level + 10) / 250f;
         float d = a * move.Base.Power * ((float)attack / defense) + 2;
+
+        if(move.Base.Name == "猜猜拳")
+        {
+            int randomvalue = Random.Range(0, 3);
+            if (randomvalue == 0)
+            {
+                critical = 2f;
+                modifiers = Random.Range(0.85f, 1f) * type * critical;
+            }
+            else if (randomvalue == 1)
+            {
+                d = a * (move.Base.Power)/2 * ((float)attack / defense) + 2;
+                attacker.lockEnegy = true;
+            }
+            else
+            {
+                attacker.mustHit = true;
+            }
+        }
+
         if (move.Base.MoveSpecial.WithHp && move.Base.MoveSpecial.MoveValue1 == 1)//HP越少，威力越大
         {
 
@@ -523,6 +559,14 @@ public class Pokemon
         else if(move.Base.MoveSpecial.WithHp && move.Base.MoveSpecial.MoveValue1 == 2)//HP越多，威力越大
         {
             float moveDamagePower = (float)move.Base.Power * (((float)(attacker.HP) / (float)attacker.MaxHp));
+            d = a * moveDamagePower * ((float)attack / defense) + 2;
+        }
+        else if (move.Base.MoveSpecial.WithHp && move.Base.MoveSpecial.MoveValue1 == 3)//HP達到某個Value,威力越大
+        {
+            float moveDamagePower = (float)move.Base.Power;
+            if (HP / MaxHp < move.Base.MoveSpecial.MoveValue2 * 0.01f)//目標HP低過Value2的數值，威力就乘以Value3。
+                moveDamagePower *= move.Base.MoveSpecial.MoveValue3;
+
             d = a * moveDamagePower * ((float)attack / defense) + 2;
         }
         else if(move.Base.MoveSpecial.WithStats && move.Base.MoveSpecial.MoveValue1 == 1)//Stats 攻擊者大於被攻擊
@@ -580,6 +624,16 @@ public class Pokemon
             int NewPower = move.Base.Power + ((move.Base.PP - move.PP) * move.Base.MoveSpecial.MoveValue2);
             d = a * NewPower * ((float)attack / defense) + 2;
         }
+        else if(move.Base.MoveSpecial.WithEnergy && move.Base.MoveSpecial.MoveValue1 == 3)//根據當前Energy決定威力
+        {
+            int NewPower = move.Base.MoveSpecial.MoveValue2 * attacker.ENERGY;
+            d = a * NewPower * ((float)attack / defense) + 2;
+        }
+        else if(move.Base.MoveSpecial.WithBoosts && move.Base.MoveSpecial.MoveValue1 == 1)
+        {
+            int NewPower = move.Base.Power + move.Base.MoveSpecial.MoveValue2 * AllBoostsPosCount;
+            d = a * NewPower * ((float)attack / defense) + 2;
+        }
         else//Default傷害計算
         {
             d = a * move.Base.Power * ((float)attack / defense) + 2;
@@ -593,6 +647,17 @@ public class Pokemon
             damage = attacker.Level;
         }
 
+        if (move.Base.MoveSpecial.MakeDeath && move.Base.MoveSpecial.MoveValue1 == 0)//Value = 0無視保護狀態
+        {
+            isprotected = false;
+            isnotdie = false;
+        }
+
+        if (move.Base.MoveSpecial.MakeDeath && move.Base.MoveSpecial.MoveValue1 == 2)//Value = 2 優先度不及保護狀態。
+        {
+            damage = MaxHp;
+        }
+
         if (isprotected)
         {
             damage = 0;
@@ -603,6 +668,20 @@ public class Pokemon
             if(damage >= HP)
                 damage = HP - 1;
         }
+
+        if(move.Base.MoveSpecial.MakeDeath && move.Base.MoveSpecial.MoveValue1 == 1)//Value = 1 無視保護，一定死亡。
+        {
+            damage = MaxHp;
+        }
+
+        if(move.Base.MoveSpecial.WithHp && move.Base.MoveSpecial.MoveValue1 == 0)//搏命。
+        {
+            if (attacker.HP < HP)
+                damage = HP - attacker.HP;
+            else
+                damage = 0;
+        }
+
 
         DecreaseHP(damage);
 
@@ -637,10 +716,62 @@ public class Pokemon
             }
         }
 
+        //純扣血技能技能
+        if (move.Base.MoveSpecial.IncreaseHp && move.Base.MoveSpecial.MoveValue1 == 3)//根據當前HP扣
+        {
+            if (move.Base.MoveSpecial.MoveValue2 > 0)//扣血比例（當前HP）
+            {
+                attacker.DecreaseHP(Mathf.FloorToInt(HP * move.Base.MoveSpecial.MoveValue2 * 0.01f));
+            }
+            else if (move.Base.MoveSpecial.MoveValue3 > 0)//固定扣血量
+            {
+                attacker.DecreaseHP(move.Base.MoveSpecial.MoveValue3);
+            }
+        }
+
         //附帶自殘效果類攻擊技能
         if (move.Base.MoveSpecial.DecreaseHp && move.Base.MoveSpecial.MoveValue1 == 1)// Value 1： 1 =>傷害自殘 2=>非攻擊類帶自殘
         {
             attacker.DecreaseHP(Mathf.FloorToInt(damage * move.Base.MoveSpecial.MoveValue2 * 0.01f)); // Value 2: 自殘HP量
+        }
+
+        //減PP技能
+        if(move.Base.MoveSpecial.DecreasePp && move.Base.MoveSpecial.MoveValue1 == 1)
+        {
+            if(Moves.Contains(CurrentMove))
+                CurrentMove.PP = 0;//被攻擊者正在使用的技能PP變0
+        }
+
+        //Attacker自己加PP技能
+        if (move.Base.MoveSpecial.IncreasePp && move.Base.MoveSpecial.MoveValue1 == 2)
+        {
+            foreach(var attackermove in attacker.Moves)
+            {
+                if(move != attackermove)//正在使用的技能不增加
+                    attackermove.IncreasePP(move.Base.MoveSpecial.MoveValue3);//Value3確定增加PP的數值
+            }
+        }
+
+        //Attacker自己加PP到最大
+        if (move.Base.MoveSpecial.IncreasePp && move.Base.MoveSpecial.MoveValue1 == 3)
+        {
+            foreach (var attackermove in attacker.Moves)
+            {
+                if (move != attackermove)//正在使用的技能不增加
+                    attackermove.IncreasePP(move.Base.PP);//Value3確定增加PP的數值
+            }
+        }
+
+        //Attacker自己加Energy到最大
+        if (move.Base.MoveSpecial.IncreaseEnergy && move.Base.MoveSpecial.MoveValue1 == 3)
+        {
+            attacker.IncreaseENERGY(attacker.MaxEnergy);
+        }
+
+        //Attacker自己減Energy到0
+        if (move.Base.MoveSpecial.DecreaseEnergy && move.Base.MoveSpecial.MoveValue1 == 3)
+        {
+            attacker.DecreaseENERGY(attacker.ENERGY);
         }
 
         return damageDetails;
@@ -730,10 +861,16 @@ public class Pokemon
 
     public Move GetRandomMove()
     {
-        var movesWithpp = Moves.Where(x => x.PP > 0).ToList();
-
-        int r = Random.Range(0, movesWithpp.Count);
-        return movesWithpp[r];
+        var movesWithpp = Moves.Where(x => x.PP > 0 && (x.Base.Energy/2) <= ENERGY).ToList();
+        if (movesWithpp.Count > 0 && movesWithpp != null)
+        {
+            int r = Random.Range(0, movesWithpp.Count);
+            return movesWithpp[r];
+        }
+        else
+        {
+            return null;
+        }
     }
 
     /// <summary>

@@ -52,6 +52,12 @@ public class Move      //技能類
         PP = Mathf.Clamp(PP + amount, 0, Base.PP);
     }
 
+    public void DecreasePP(int amount)
+    {
+        if(PP > 0)
+            PP = Mathf.Clamp(PP - amount, 0, Base.PP);
+    }
+
     public void IncreaseEnergy(int amount)
     {
         PP = Mathf.Clamp(Energy + amount, 0, Base.Energy);

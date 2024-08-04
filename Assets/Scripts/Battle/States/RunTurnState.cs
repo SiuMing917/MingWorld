@@ -65,7 +65,18 @@ public class RunTurnState : State<BattleSystem>
             else
                 playerUnit.Pokemon.CurrentMove = useStruggle;
 
-            enemyUnit.Pokemon.CurrentMove = enemyUnit.Pokemon.GetRandomMove();
+            var enemyMove = enemyUnit.Pokemon.GetRandomMove();
+            if(enemyMove == null)
+            {
+                int defaultmove = Random.Range(0, 2);
+
+                if (defaultmove == 0)
+                    enemyUnit.Pokemon.CurrentMove = useStruggle;
+                else
+                    enemyUnit.Pokemon.CurrentMove = useRest;
+            }
+            else
+                enemyUnit.Pokemon.CurrentMove = enemyUnit.Pokemon.GetRandomMove();
 
             //記錄對手使用的技能
             bs.prevMoveSelfUsed = playerUnit.Pokemon.CurrentMove;
@@ -174,16 +185,23 @@ public class RunTurnState : State<BattleSystem>
 
         //pp-1
         if(!bs.DefaultMoveBases.Contains(move.Base))
-            move.PP--;
+            move.DecreasePP(1);
 
         //*********使用者的Energy根據技能能量消耗**************
-        if (sourceUnit.Pokemon.ENERGY < move.Energy)
-            sourceUnit.Pokemon.DecreaseENERGY(sourceUnit.Pokemon.ENERGY);
+        if (!sourceUnit.Pokemon.lockEnegy)
+        {
+            if (sourceUnit.Pokemon.ENERGY < move.Energy)
+                sourceUnit.Pokemon.DecreaseENERGY(sourceUnit.Pokemon.ENERGY);
+            else
+                sourceUnit.Pokemon.DecreaseENERGY(move.Energy);
+
+            yield return dialogBox.TypeDialog($"{sourceUnit.Pokemon.Base.Name}使用了{move.Base.Name},能量變化{-move.Energy},剩餘能量{sourceUnit.Pokemon.ENERGY}");
+        }
         else
-            sourceUnit.Pokemon.DecreaseENERGY(move.Energy);
-
-
-        yield return dialogBox.TypeDialog($"{sourceUnit.Pokemon.Base.Name}使用了{move.Base.Name},能量變化{-move.Energy},剩餘能量{sourceUnit.Pokemon.ENERGY}");
+        {
+            sourceUnit.Pokemon.lockEnegy = false;
+            yield return dialogBox.TypeDialog($"{sourceUnit.Pokemon.Base.Name}使用了{move.Base.Name},能量變化0,剩餘能量{sourceUnit.Pokemon.ENERGY}");
+        }
 
         //判斷技能是否命中
         if (CheckIfMoveHit(move, sourceUnit.Pokemon, targetUnit.Pokemon))
@@ -339,7 +357,7 @@ public class RunTurnState : State<BattleSystem>
     bool CheckIfMoveHit(Move move, Pokemon source, Pokemon target)
     {
         //必定命中
-        if (move.Base.AlwaysHit)
+        if (move.Base.AlwaysHit || source.mustHit)
             return true;
 
         float moveAccuracy = move.Base.Accuracy;

@@ -10,17 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b459839e87bb9fa48ae7cdc761fcb218, type: 3}
-  m_Name: "\u6708\u7259\u5929\u885D"
+  m_Name: APTX4869
   m_EditorClassIdentifier: 
-  name: "\u6708\u7259\u5929\u885D"
-  description: "\u5C07\u529B\u91CF\u96C6\u4E2D\u5728\u5200\u4E0A\uFF0C\u5411\u524D\u63EE\u51FA\u65AC\u64CA\uFF0C\u6575\u4EBA\u901F\u5EA6\u6BD4\u81EA\u8EAB\u8D8A\u4F4E\uFF0C\u5A01\u529B\u5C07\u6703\u6210\u500D\u589E\u9577\u3002"
-  type: 5
-  power: 40
-  accuracy: 95
+  name: 
+  description: 
+  type: 0
+  power: 0
+  accuracy: 0
   alwaysHit: 0
-  pp: 10
+  pp: 0
   priority: 0
-  energy: 10
+  energy: 0
   criticalrate: 0
   category: 0
   effects:
@@ -34,7 +34,7 @@ MonoBehaviour:
     withLevel: 0
     withEnergy: 0
     withBoosts: 0
-    withStats: 1
+    withStats: 0
     withHp: 0
     withPp: 0
     withMoveType: 0
@@ -53,7 +53,7 @@ MonoBehaviour:
     makeDeath: 0
     makeProtect: 0
     makeRandom: 0
-    moveValue1: 1
-    moveValue2: 5
+    moveValue1: 0
+    moveValue2: 0
     moveValue3: 0
   sound: {fileID: 0}

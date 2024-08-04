@@ -10,30 +10,34 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b459839e87bb9fa48ae7cdc761fcb218, type: 3}
-  m_Name: "\u5343\u9CE5"
+  m_Name: "\u6B66\u88DD\u8272\u9738\u6C23"
   m_EditorClassIdentifier: 
-  name: "\u5343\u9CE5"
-  description: "\u624B\u638C\u51DD\u805A\u96F7\u96FB\uFF0C\u5411\u524D\u7A81\u523A\uFF0C\u5BB9\u6613\u64CA\u7834\u9632\u79A6\u3002"
-  type: 4
-  power: 80
-  accuracy: 95
+  name: "\u9738\u6C23"
+  description: "\u4F7F\u7528\u6B66\u88DD\u8272\u3001\u898B\u805E\u8272\u9738\u6C23\u5F3A\u5316\u81EA\u8EAB\u7684\u653B\u64CA\u548C\u901F\u5EA6\u3002"
+  type: 1
+  power: 0
+  accuracy: 0
   alwaysHit: 0
   pp: 10
   priority: 0
-  energy: 10
-  criticalrate: 30
-  category: 0
+  energy: 8
+  criticalrate: 0
+  category: 2
   effects:
-    boosts: []
+    boosts:
+    - stat: 0
+      boost: 1
+    - stat: 4
+      boost: 1
     status: 0
     volatileStatus: 0
-    selfeffect: 0
+    selfeffect: 1
   secondaries: []
   target: 0
   movespecial:
     withLevel: 0
     withEnergy: 0
-    withBoosts: 0
+    withStatus: 0
     withStats: 0
     withHp: 0
     withPp: 0
@@ -41,7 +45,7 @@ MonoBehaviour:
     withUserType: 0
     withTargetType: 0
     withDamage: 0
-    clearBoosts: 0
+    clearStatus: 0
     copyStatus: 0
     increaseHp: 0
     decreaseHp: 0
@@ -52,8 +56,7 @@ MonoBehaviour:
     copyMove: 0
     makeDeath: 0
     makeProtect: 0
-    makeRandom: 0
     moveValue1: 0
     moveValue2: 0
     moveValue3: 0
-  sound: {fileID: 8300000, guid: dcc8b7b348cfe2e45a18250865dab226, type: 3}
+  sound: {fileID: 0}

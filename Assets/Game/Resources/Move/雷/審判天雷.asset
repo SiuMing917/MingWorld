@@ -10,19 +10,19 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b459839e87bb9fa48ae7cdc761fcb218, type: 3}
-  m_Name: "\u5343\u9CE5"
+  m_Name: "\u5BE9\u5224\u5929\u96F7"
   m_EditorClassIdentifier: 
-  name: "\u5343\u9CE5"
-  description: "\u624B\u638C\u51DD\u805A\u96F7\u96FB\uFF0C\u5411\u524D\u7A81\u523A\uFF0C\u5BB9\u6613\u64CA\u7834\u9632\u79A6\u3002"
+  name: "\u5BE9\u5224\u5929\u96F7"
+  description: "\u5BE9\u5224\u5929\u96F7\uFF0C\u4E00\u65E6\u547D\u4E2D\uFF0C\u5FC5\u5B9A\u79D2\u6BBA\u5C0D\u65B9\uFF0C\u7121\u8996\u4E00\u5207\u3002"
   type: 4
-  power: 80
-  accuracy: 95
+  power: 999
+  accuracy: 30
   alwaysHit: 0
-  pp: 10
+  pp: 2
   priority: 0
-  energy: 10
-  criticalrate: 30
-  category: 0
+  energy: 50
+  criticalrate: 0
+  category: 1
   effects:
     boosts: []
     status: 0
@@ -50,10 +50,10 @@ MonoBehaviour:
     increasePp: 0
     decreasePp: 0
     copyMove: 0
-    makeDeath: 0
+    makeDeath: 1
     makeProtect: 0
     makeRandom: 0
-    moveValue1: 0
+    moveValue1: 1
     moveValue2: 0
     moveValue3: 0
-  sound: {fileID: 8300000, guid: dcc8b7b348cfe2e45a18250865dab226, type: 3}
+  sound: {fileID: 0}

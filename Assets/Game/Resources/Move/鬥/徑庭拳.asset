@@ -10,18 +10,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b459839e87bb9fa48ae7cdc761fcb218, type: 3}
-  m_Name: "\u5343\u9CE5"
+  m_Name: "\u5F91\u5EAD\u62F3"
   m_EditorClassIdentifier: 
-  name: "\u5343\u9CE5"
-  description: "\u624B\u638C\u51DD\u805A\u96F7\u96FB\uFF0C\u5411\u524D\u7A81\u523A\uFF0C\u5BB9\u6613\u64CA\u7834\u9632\u79A6\u3002"
-  type: 4
-  power: 80
-  accuracy: 95
+  name: 
+  description: 
+  type: 0
+  power: 0
+  accuracy: 0
   alwaysHit: 0
-  pp: 10
+  pp: 0
   priority: 0
-  energy: 10
-  criticalrate: 30
+  energy: 0
+  criticalrate: 0
   category: 0
   effects:
     boosts: []
@@ -56,4 +56,4 @@ MonoBehaviour:
     moveValue1: 0
     moveValue2: 0
     moveValue3: 0
-  sound: {fileID: 8300000, guid: dcc8b7b348cfe2e45a18250865dab226, type: 3}
+  sound: {fileID: 0}
