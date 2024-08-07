@@ -12,22 +12,50 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f27ad2d9eb429a5419c3092875fafb76, type: 3}
   m_Name: "10\u4E59\u9AA8\u7336\u592A"
   m_EditorClassIdentifier: 
-  name: 
+  name: "\u4E59\u9AA8\u6182\u592A"
   description: 
   frontSprite: {fileID: 0}
   backSprite: {fileID: 0}
-  type1: 0
-  type2: 0
-  maxHp: 0
-  attack: 0
-  defence: 0
-  spAttack: 0
-  spDefense: 0
-  speed: 0
-  maxEnergy: 0
-  expYield: 0
-  growthRate: 0
-  catchRate: 255
-  learnableMoves: []
+  type1: 12
+  type2: 13
+  maxHp: 100
+  attack: 100
+  defence: 100
+  spAttack: 100
+  spDefense: 100
+  speed: 100
+  maxEnergy: 200
+  expYield: 1800
+  growthRate: 3
+  catchRate: 155
+  learnableMoves:
+  - moveBase: {fileID: 11400000, guid: 22d5fb872bd88c2459f7b0ca42e3f725, type: 2}
+    level: 1
+  - moveBase: {fileID: 11400000, guid: b948743adfe0901418aa859bbf53ccac, type: 2}
+    level: 1
+  - moveBase: {fileID: 11400000, guid: 39352477c6f5b454f951dbd36dbb7d56, type: 2}
+    level: 1
+  - moveBase: {fileID: 11400000, guid: fabfd62b5350f594b90a3208279c2271, type: 2}
+    level: 1
+  - moveBase: {fileID: 11400000, guid: 20e43eb1aa3df404ead59c1030aa907e, type: 2}
+    level: 8
+  - moveBase: {fileID: 11400000, guid: 77459ee2324608a43b122442ca9409bf, type: 2}
+    level: 12
+  - moveBase: {fileID: 11400000, guid: c455781770fbf3144b0140a57ebda77a, type: 2}
+    level: 15
+  - moveBase: {fileID: 11400000, guid: 90d6ba05787b628479cf81befe057f95, type: 2}
+    level: 20
+  - moveBase: {fileID: 11400000, guid: 4b304c47cd99bee46bf32a1a256df2be, type: 2}
+    level: 25
+  - moveBase: {fileID: 11400000, guid: 3936979ff89a1a84a991cf6bdd2e5749, type: 2}
+    level: 30
+  - moveBase: {fileID: 11400000, guid: f360339b9cd714342be2a150d1efdcc0, type: 2}
+    level: 35
+  - moveBase: {fileID: 11400000, guid: 6c9a66ba44b33174dae5ea38dbd3384e, type: 2}
+    level: 40
+  - moveBase: {fileID: 11400000, guid: 24390909d1f53ee409c8ef17d7719b80, type: 2}
+    level: 50
+  - moveBase: {fileID: 11400000, guid: f86f35e0f2b31e64690cd87b28a643e5, type: 2}
+    level: 1
   learnableByItems: []
   evolutions: []

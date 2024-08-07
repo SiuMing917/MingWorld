@@ -30,8 +30,8 @@ MonoBehaviour:
     selfeffect: 0
   secondaries:
   - boosts: []
-    status: 6
-    volatileStatus: 0
+    status: 0
+    volatileStatus: 6
     selfeffect: 0
     change: 20
     target: 0
@@ -39,7 +39,7 @@ MonoBehaviour:
   movespecial:
     withLevel: 0
     withEnergy: 0
-    withStatus: 0
+    withBoosts: 0
     withStats: 0
     withHp: 0
     withPp: 0
@@ -47,7 +47,7 @@ MonoBehaviour:
     withUserType: 0
     withTargetType: 0
     withDamage: 0
-    clearStatus: 0
+    clearBoosts: 0
     copyStatus: 0
     increaseHp: 0
     decreaseHp: 0
@@ -58,6 +58,7 @@ MonoBehaviour:
     copyMove: 0
     makeDeath: 0
     makeProtect: 0
+    makeRandom: 0
     moveValue1: 0
     moveValue2: 0
     moveValue3: 0

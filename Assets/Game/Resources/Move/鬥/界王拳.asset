@@ -12,22 +12,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b459839e87bb9fa48ae7cdc761fcb218, type: 3}
   m_Name: "\u754C\u738B\u62F3"
   m_EditorClassIdentifier: 
-  name: 
-  description: 
-  type: 0
-  power: 0
-  accuracy: 0
+  name: "\u754C\u738B\u62F3"
+  description: "\u754C\u738B\u62F3\uFF0C\u6BCF\u6B21\u4F7F\u7528\u90FD\u53EF\u4EE5\u589E\u52A0\u81EA\u5DF1\u7684\u653B\u64CA\u529B\u3002"
+  type: 7
+  power: 40
+  accuracy: 100
   alwaysHit: 0
-  pp: 0
+  pp: 15
   priority: 0
-  energy: 0
+  energy: 8
   criticalrate: 0
   category: 0
   effects:
-    boosts: []
+    boosts:
+    - stat: 0
+      boost: 1
     status: 0
     volatileStatus: 0
-    selfeffect: 0
+    selfeffect: 1
   secondaries: []
   target: 0
   movespecial:

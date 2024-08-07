@@ -12,13 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b459839e87bb9fa48ae7cdc761fcb218, type: 3}
   m_Name: "\u9F9C\u6CE2\u6C23\u529F"
   m_EditorClassIdentifier: 
-  name: 
-  description: 
-  type: 0
-  power: 0
-  accuracy: 0
+  name: "\u9F9C\u6CE2\u6C23\u529F"
+  description: "\u9F9C\u6CE2\u6C23\u529F\uFF0C\u6D88\u8017\u81EA\u8EAB\u6240\u6709\u80FD\u91CF\uFF0C\u767C\u51FA\u6700\u5F3A\u4E00\u64CA\uFF0C\u4E00\u5B9A\u64CA\u7834\u9632\u79A6\uFF0C\u6D88\u8017\u80FD\u91CF\u8D8A\u591A\uFF0C\u5A01\u529B\u8D8A\u5927\u3002\u5A01\u529B\u70BA\u80FD\u91CF\u6D88\u8017x10\u3002"
+  type: 13
+  power: 10
+  accuracy: 100
   alwaysHit: 0
-  pp: 0
+  pp: 8
   priority: 0
   energy: 0
   criticalrate: 0
@@ -32,7 +32,7 @@ MonoBehaviour:
   target: 0
   movespecial:
     withLevel: 0
-    withEnergy: 0
+    withEnergy: 1
     withBoosts: 0
     withStats: 0
     withHp: 0
@@ -46,14 +46,14 @@ MonoBehaviour:
     increaseHp: 0
     decreaseHp: 0
     increaseEnergy: 0
-    decreaseEnergy: 0
+    decreaseEnergy: 1
     increasePp: 0
     decreasePp: 0
     copyMove: 0
     makeDeath: 0
     makeProtect: 0
     makeRandom: 0
-    moveValue1: 0
-    moveValue2: 0
+    moveValue1: 3
+    moveValue2: 10
     moveValue3: 0
   sound: {fileID: 0}

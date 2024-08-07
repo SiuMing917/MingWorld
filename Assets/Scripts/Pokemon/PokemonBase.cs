@@ -55,14 +55,35 @@ public class PokemonBase : ScriptableObject
     {
         int levelrange = level * level * level;
 
-        if (growthRate == GrowthRate.Fast)
+        if (growthRate == GrowthRate.Fastest)
+        {
+            return  levelrange / 2;
+        }
+        else if (growthRate == GrowthRate.Fast)
+        {
+            return 2 * levelrange / 3;
+        }
+        else if (growthRate == GrowthRate.Faster)
         {
             return 4 * levelrange / 5;
         }
-        else if (growthRate == GrowthRate.MediumFast)
+        else if (growthRate == GrowthRate.Medium)
         {
             return levelrange;
         }
+        else if (growthRate == GrowthRate.Slower)
+        {
+            return levelrange * 5 / 4;
+        }
+        else if (growthRate == GrowthRate.Slow)
+        {
+            return levelrange * 3 / 2;
+        }
+        else if (growthRate == GrowthRate.Slowest)
+        {
+            return levelrange * 2;
+        }
+
         return -1;
     }
 
@@ -242,7 +263,7 @@ public enum PokemonType  //Pokemon屬性
 
 public enum GrowthRate
 {
-    Fast, MediumFast,
+    Fastest, Fast, Faster, Medium, Slower, Slow, Slowest
 }
 
 

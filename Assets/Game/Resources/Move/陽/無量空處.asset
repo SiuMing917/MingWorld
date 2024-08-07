@@ -12,19 +12,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b459839e87bb9fa48ae7cdc761fcb218, type: 3}
   m_Name: "\u7121\u91CF\u7A7A\u8655"
   m_EditorClassIdentifier: 
-  name: 
-  description: 
-  type: 0
+  name: "\u7121\u91CF\u7A7A\u8655"
+  description: "\u7121\u91CF\u7A7A\u8655\uFF0C\u5FC5\u5B9A\u547D\u4E2D\uFF0C\u5411\u5C0D\u624B\u704C\u8F38\u7121\u7AAE\u7121\u76E1\u7684\u4FE1\u606F\uFF0C\u8B93\u5C0D\u624B\u5931\u53BB\u610F\u8B58\uFF0C\u5982\u679C\u5C0D\u624B\u6C92\u6709\u6B7B\u4EA1\uFF0C\u5247\u6975\u5927\u5E45\u5EA6\u964D\u4F4E\u5C0D\u624B\u6240\u6709\u57FA\u790E\u80FD\u529B\u503C\u3002"
+  type: 13
   power: 0
   accuracy: 0
-  alwaysHit: 0
-  pp: 0
+  alwaysHit: 1
+  pp: 2
   priority: 0
-  energy: 0
+  energy: 50
   criticalrate: 0
-  category: 0
+  category: 1
   effects:
-    boosts: []
+    boosts:
+    - stat: 0
+      boost: -3
+    - stat: 1
+      boost: -3
+    - stat: 2
+      boost: -3
+    - stat: 3
+      boost: -3
+    - stat: 4
+      boost: -3
     status: 0
     volatileStatus: 0
     selfeffect: 0
@@ -50,10 +60,10 @@ MonoBehaviour:
     increasePp: 0
     decreasePp: 0
     copyMove: 0
-    makeDeath: 0
+    makeDeath: 1
     makeProtect: 0
     makeRandom: 0
-    moveValue1: 0
+    moveValue1: 2
     moveValue2: 0
     moveValue3: 0
   sound: {fileID: 0}

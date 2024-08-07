@@ -20,21 +20,21 @@ MonoBehaviour:
   alwaysHit: 1
   pp: 1
   priority: 0
-  energy: 60
+  energy: 50
   criticalrate: 0
   category: 2
   effects:
     boosts:
     - stat: 0
-      boost: 2
+      boost: 3
     - stat: 1
-      boost: 2
+      boost: 3
     - stat: 2
-      boost: 2
+      boost: 3
     - stat: 3
-      boost: 2
+      boost: 3
     - stat: 5
-      boost: 2
+      boost: 3
     status: 0
     volatileStatus: 0
     selfeffect: 1

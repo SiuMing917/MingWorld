@@ -20,7 +20,7 @@ MonoBehaviour:
   alwaysHit: 0
   pp: 20
   priority: 0
-  energy: 5
+  energy: 0
   criticalrate: 0
   category: 2
   effects:

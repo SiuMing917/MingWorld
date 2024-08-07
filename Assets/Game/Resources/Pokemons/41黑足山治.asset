@@ -12,22 +12,51 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f27ad2d9eb429a5419c3092875fafb76, type: 3}
   m_Name: "41\u9ED1\u8DB3\u5C71\u6CBB"
   m_EditorClassIdentifier: 
-  name: 
+  name: "\u9ED1\u8DB3\u5C71\u6CBB"
   description: 
   frontSprite: {fileID: 0}
   backSprite: {fileID: 0}
-  type1: 0
+  type1: 11
   type2: 0
-  maxHp: 0
-  attack: 0
-  defence: 0
-  spAttack: 0
-  spDefense: 0
-  speed: 0
-  maxEnergy: 0
-  expYield: 0
-  growthRate: 0
-  catchRate: 255
-  learnableMoves: []
+  maxHp: 90
+  attack: 70
+  defence: 92
+  spAttack: 58
+  spDefense: 88
+  speed: 80
+  maxEnergy: 80
+  expYield: 1000
+  growthRate: 1
+  catchRate: 200
+  learnableMoves:
+  - moveBase: {fileID: 11400000, guid: 7cd6ca767c886054898c6b655c0045b6, type: 2}
+    level: 1
+  - moveBase: {fileID: 11400000, guid: 11ecfa33f89cf014b84646afdbde1b96, type: 2}
+    level: 1
+  - moveBase: {fileID: 11400000, guid: 9654d6377494c394caa85faf3d4dab7b, type: 2}
+    level: 1
+  - moveBase: {fileID: 11400000, guid: cfd308df5290c4f4ba287846165cb316, type: 2}
+    level: 1
+  - moveBase: {fileID: 11400000, guid: f697ecea4ee539643abcc093422c4824, type: 2}
+    level: 8
+  - moveBase: {fileID: 11400000, guid: 5fbc10a6fc40eb442b0936952721a44a, type: 2}
+    level: 11
+  - moveBase: {fileID: 11400000, guid: 39352477c6f5b454f951dbd36dbb7d56, type: 2}
+    level: 14
+  - moveBase: {fileID: 11400000, guid: 8ae482c714b8d5b45b437398def054ee, type: 2}
+    level: 17
+  - moveBase: {fileID: 11400000, guid: 7722aaf14c2f1b8418b2d22bdce9a46e, type: 2}
+    level: 20
+  - moveBase: {fileID: 11400000, guid: b03cd4f4badb43341a66746946ee35a8, type: 2}
+    level: 26
+  - moveBase: {fileID: 11400000, guid: 6a8c62c28f3167448a4cfb5cc83fd895, type: 2}
+    level: 30
+  - moveBase: {fileID: 11400000, guid: f46ca12d195493140aca191bd85402b6, type: 2}
+    level: 38
+  - moveBase: {fileID: 11400000, guid: c629f412aa354ac4aa99ec309a4f94a1, type: 2}
+    level: 42
   learnableByItems: []
-  evolutions: []
+  evolutions:
+  - evolvesInto: {fileID: 11400000, guid: 0f3dd13df201c9941a7f0576a02c935c, type: 2}
+    requiredLevel: 30
+    requiredItem: {fileID: 0}

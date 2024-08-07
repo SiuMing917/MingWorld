@@ -20,15 +20,15 @@ MonoBehaviour:
   alwaysHit: 0
   pp: 0
   priority: 0
-  energy: 0
+  energy: 5
   criticalrate: 0
   category: 2
   effects:
     boosts:
     - stat: 0
-      boost: 2
+      boost: 3
     - stat: 2
-      boost: 2
+      boost: 3
     status: 0
     volatileStatus: 0
     selfeffect: 1

@@ -1,0 +1,61 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b459839e87bb9fa48ae7cdc761fcb218, type: 3}
+  m_Name: "\u5927\u7D05\u84EE\u51B0\u8F2A\u4E38"
+  m_EditorClassIdentifier: 
+  name: "\u5927\u7D05\u84EE\u51B0\u8F2A\u4E38"
+  description: "\u91CB\u653E\u5927\u91CF\u5BD2\u6C23\uFF0C\u4E26\u53EC\u559A\u51B0\u9F8D\u653B\u64CA\uFF0C\u81EA\u8EAB\u9632\u79A6\u8D8A\u9AD8\uFF0C\u5A01\u529B\u8D8A\u5927\uFF0C\u4E26\u964D\u4F4E\u5C0D\u624B\u901F\u5EA6\u3002"
+  type: 6
+  power: 45
+  accuracy: 90
+  alwaysHit: 0
+  pp: 10
+  priority: 0
+  energy: 20
+  criticalrate: 0
+  category: 0
+  effects:
+    boosts:
+    - stat: 4
+      boost: -1
+    status: 0
+    volatileStatus: 0
+    selfeffect: 0
+  secondaries: []
+  target: 0
+  movespecial:
+    withLevel: 0
+    withEnergy: 0
+    withBoosts: 0
+    withStats: 1
+    withHp: 0
+    withPp: 0
+    withMoveType: 0
+    withUserType: 0
+    withTargetType: 0
+    withDamage: 0
+    clearBoosts: 0
+    copyStatus: 0
+    increaseHp: 0
+    decreaseHp: 0
+    increaseEnergy: 0
+    decreaseEnergy: 0
+    increasePp: 0
+    decreasePp: 0
+    copyMove: 0
+    makeDeath: 0
+    makeProtect: 0
+    makeRandom: 0
+    moveValue1: 1
+    moveValue2: 2
+    moveValue3: 0
+  sound: {fileID: 0}

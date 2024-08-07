@@ -15,14 +15,14 @@ MonoBehaviour:
   name: "\u5343\u9CE5\u6D41"
   description: "\u4E00\u5B9A\u9020\u6210\u5C0D\u624B\u9EBB\u75F9\uFF0C\u4E26\u964D\u4F4E\u5C0D\u624B\u901F\u5EA6"
   type: 4
-  power: 0
+  power: 10
   accuracy: 100
   alwaysHit: 0
-  pp: 1
+  pp: 30
   priority: 0
-  energy: 5
+  energy: 2
   criticalrate: 0
-  category: 2
+  category: 1
   effects:
     boosts:
     - stat: 4

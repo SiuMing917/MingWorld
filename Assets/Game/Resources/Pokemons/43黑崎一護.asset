@@ -12,22 +12,49 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f27ad2d9eb429a5419c3092875fafb76, type: 3}
   m_Name: "43\u9ED1\u5D0E\u4E00\u8B77"
   m_EditorClassIdentifier: 
-  name: 
+  name: "\u9ED1\u5D0E\u4E00\u8B77"
   description: 
   frontSprite: {fileID: 0}
   backSprite: {fileID: 0}
-  type1: 0
+  type1: 13
   type2: 0
-  maxHp: 0
-  attack: 0
-  defence: 0
-  spAttack: 0
-  spDefense: 0
-  speed: 0
-  maxEnergy: 0
-  expYield: 0
-  growthRate: 0
-  catchRate: 255
-  learnableMoves: []
+  maxHp: 80
+  attack: 80
+  defence: 70
+  spAttack: 80
+  spDefense: 60
+  speed: 60
+  maxEnergy: 130
+  expYield: 1000
+  growthRate: 1
+  catchRate: 200
+  learnableMoves:
+  - moveBase: {fileID: 11400000, guid: 22d5fb872bd88c2459f7b0ca42e3f725, type: 2}
+    level: 1
+  - moveBase: {fileID: 11400000, guid: 599be0246aff40d48a6ccb0d28243dac, type: 2}
+    level: 1
+  - moveBase: {fileID: 11400000, guid: cfd308df5290c4f4ba287846165cb316, type: 2}
+    level: 1
+  - moveBase: {fileID: 11400000, guid: b948743adfe0901418aa859bbf53ccac, type: 2}
+    level: 1
+  - moveBase: {fileID: 11400000, guid: 353db6ece51e8d34b9adb7c0bc1db9d1, type: 2}
+    level: 7
+  - moveBase: {fileID: 11400000, guid: 8f1ccc46dcefb524085d270a3dee8220, type: 2}
+    level: 14
+  - moveBase: {fileID: 11400000, guid: dc40b9c832714a149bc166cc5c94e495, type: 2}
+    level: 18
+  - moveBase: {fileID: 11400000, guid: 77459ee2324608a43b122442ca9409bf, type: 2}
+    level: 25
+  - moveBase: {fileID: 11400000, guid: 9ec3f3eae4b87bd4eb319269b114ff63, type: 2}
+    level: 30
+  - moveBase: {fileID: 11400000, guid: bd8d0b5027682ec40b90e4c41c6637a9, type: 2}
+    level: 38
+  - moveBase: {fileID: 11400000, guid: aa38aa49e4253a8458491753136cdd4d, type: 2}
+    level: 42
+  - moveBase: {fileID: 11400000, guid: 4e4e9fe6d3bd5ae40a7dc4f10109ffc5, type: 2}
+    level: 50
   learnableByItems: []
-  evolutions: []
+  evolutions:
+  - evolvesInto: {fileID: 11400000, guid: e236924ac4717364b9d5df2de99b8a9c, type: 2}
+    requiredLevel: 30
+    requiredItem: {fileID: 0}

@@ -13,14 +13,14 @@ MonoBehaviour:
   m_Name: "\u5145\u96FB"
   m_EditorClassIdentifier: 
   name: "\u5145\u96FB"
-  description: "\u63D0\u5347\u81EA\u8EAB\u9B54\u6CD5\u548C\u9B54\u9632\uFF0C\u4E26\u56DE\u5FA910\u9EDE\u80FD\u91CF"
+  description: "\u63D0\u5347\u81EA\u8EAB\u9B54\u6CD5\u548C\u9B54\u9632\uFF0C\u4E26\u56DE\u5FA915\u9EDE\u80FD\u91CF"
   type: 4
   power: 0
   accuracy: 0
   alwaysHit: 1
   pp: 10
   priority: 0
-  energy: -10
+  energy: -15
   criticalrate: 0
   category: 2
   effects:

@@ -12,17 +12,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b459839e87bb9fa48ae7cdc761fcb218, type: 3}
   m_Name: "\u6697\u9ED1\u7206\u7834"
   m_EditorClassIdentifier: 
-  name: 
-  description: 
-  type: 0
-  power: 0
-  accuracy: 0
+  name: "\u6697\u9ED1\u7206\u7834"
+  description: "\u7528\u6697\u9ED1\u4E4B\u529B\u9032\u884C\u653B\u64CA\u3002"
+  type: 12
+  power: 85
+  accuracy: 100
   alwaysHit: 0
-  pp: 0
+  pp: 15
   priority: 0
-  energy: 0
+  energy: 15
   criticalrate: 0
-  category: 0
+  category: 1
   effects:
     boosts: []
     status: 0

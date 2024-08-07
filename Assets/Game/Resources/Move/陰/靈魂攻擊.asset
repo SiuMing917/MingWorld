@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b459839e87bb9fa48ae7cdc761fcb218, type: 3}
   m_Name: "\u9748\u9B42\u653B\u64CA"
   m_EditorClassIdentifier: 
-  name: "\u9748\u9B42\u653B\u64CA"
-  description: 
+  name: "\u9748\u9B42\u885D\u64CA"
+  description: "\u5C0D\u6575\u4EBA\u9748\u9B42\u9032\u884C\u653B\u64CA\uFF0C\u524A\u6E1B\u5C0D\u624B\u7576\u524DHP\u7684\u4E00\u534A\u3002"
   type: 0
   power: 0
   accuracy: 0
@@ -44,7 +44,7 @@ MonoBehaviour:
     clearBoosts: 0
     copyStatus: 0
     increaseHp: 0
-    decreaseHp: 0
+    decreaseHp: 1
     increaseEnergy: 0
     decreaseEnergy: 0
     increasePp: 0
@@ -53,7 +53,7 @@ MonoBehaviour:
     makeDeath: 0
     makeProtect: 0
     makeRandom: 0
-    moveValue1: 0
-    moveValue2: 0
+    moveValue1: 3
+    moveValue2: 50
     moveValue3: 0
   sound: {fileID: 0}

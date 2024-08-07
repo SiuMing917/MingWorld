@@ -1,0 +1,41 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f27ad2d9eb429a5419c3092875fafb76, type: 3}
+  m_Name: "95\u5B64\u777E\u5FCD\u8005"
+  m_EditorClassIdentifier: 
+  name: "\u5B64\u777E\u5FCD\u8005"
+  description: 
+  frontSprite: {fileID: 0}
+  backSprite: {fileID: 0}
+  type1: 5
+  type2: 0
+  maxHp: 75
+  attack: 89
+  defence: 68
+  spAttack: 42
+  spDefense: 67
+  speed: 130
+  maxEnergy: 80
+  expYield: 1800
+  growthRate: 2
+  catchRate: 150
+  learnableMoves:
+  - moveBase: {fileID: 11400000, guid: 5fbc10a6fc40eb442b0936952721a44a, type: 2}
+    level: 1
+  - moveBase: {fileID: 11400000, guid: 07e0a020ce45d794b86450ca0c1b98c5, type: 2}
+    level: 1
+  - moveBase: {fileID: 11400000, guid: fabfd62b5350f594b90a3208279c2271, type: 2}
+    level: 1
+  - moveBase: {fileID: 11400000, guid: d2e6a0bbd6bbf0c47b97c084f612d003, type: 2}
+    level: 1
+  learnableByItems: []
+  evolutions: []

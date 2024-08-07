@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Cut
   m_EditorClassIdentifier: 
   name: "\u65AC\u64CA"
-  description: 
+  description: "\u5E73\u5E73\u7121\u5947\u65AC\u64CA\u3002"
   type: 1
   power: 40
   accuracy: 100
@@ -21,6 +21,7 @@ MonoBehaviour:
   pp: 40
   priority: 0
   energy: 5
+  criticalrate: 0
   category: 0
   effects:
     boosts: []
@@ -29,4 +30,30 @@ MonoBehaviour:
     selfeffect: 0
   secondaries: []
   target: 0
+  movespecial:
+    withLevel: 0
+    withEnergy: 0
+    withBoosts: 0
+    withStats: 0
+    withHp: 0
+    withPp: 0
+    withMoveType: 0
+    withUserType: 0
+    withTargetType: 0
+    withDamage: 0
+    clearBoosts: 0
+    copyStatus: 0
+    increaseHp: 0
+    decreaseHp: 0
+    increaseEnergy: 0
+    decreaseEnergy: 0
+    increasePp: 0
+    decreasePp: 0
+    copyMove: 0
+    makeDeath: 0
+    makeProtect: 0
+    makeRandom: 0
+    moveValue1: 0
+    moveValue2: 0
+    moveValue3: 0
   sound: {fileID: 8300000, guid: dcc8b7b348cfe2e45a18250865dab226, type: 3}

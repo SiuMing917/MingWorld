@@ -15,7 +15,7 @@ MonoBehaviour:
   name: "\u5929\u7167"
   description: "\u5929\u7167\uFF0C\u7528\u9ED1\u8272\u706B\u7130\u71C3\u71D2\u5C0D\u65B9\uFF0C\u4E00\u5B9A\u4EE4\u6575\u4EBA\u707C\u50B7\u3002"
   type: 2
-  power: 40
+  power: 80
   accuracy: 100
   alwaysHit: 0
   pp: 10

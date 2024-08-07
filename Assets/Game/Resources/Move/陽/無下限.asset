@@ -12,24 +12,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b459839e87bb9fa48ae7cdc761fcb218, type: 3}
   m_Name: "\u7121\u4E0B\u9650"
   m_EditorClassIdentifier: 
-  name: 
-  description: 
-  type: 0
+  name: "\u7121\u4E0B\u9650"
+  description: "\u4FDD\u8B77\u81EA\u8EAB\u514D\u53D7\u50B7\u5BB3\uFF0C\u540C\u6642\u56DE\u5FA9\u81EA\u8EAB\u80FD\u91CF\u3002"
+  type: 13
   power: 0
   accuracy: 0
-  alwaysHit: 0
-  pp: 0
+  alwaysHit: 1
+  pp: 10
   priority: 0
-  energy: 0
+  energy: -10
   criticalrate: 0
-  category: 0
+  category: 2
   effects:
     boosts: []
     status: 0
     volatileStatus: 0
     selfeffect: 0
   secondaries: []
-  target: 0
+  target: 1
   movespecial:
     withLevel: 0
     withEnergy: 0
@@ -51,9 +51,9 @@ MonoBehaviour:
     decreasePp: 0
     copyMove: 0
     makeDeath: 0
-    makeProtect: 0
+    makeProtect: 1
     makeRandom: 0
-    moveValue1: 0
+    moveValue1: 1
     moveValue2: 0
     moveValue3: 0
   sound: {fileID: 0}

@@ -12,22 +12,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f27ad2d9eb429a5419c3092875fafb76, type: 3}
   m_Name: "22\u82B1\u5FA1"
   m_EditorClassIdentifier: 
-  name: 
+  name: "\u82B1\u5FA1"
   description: 
   frontSprite: {fileID: 0}
   backSprite: {fileID: 0}
-  type1: 0
+  type1: 10
   type2: 0
-  maxHp: 0
-  attack: 0
-  defence: 0
-  spAttack: 0
-  spDefense: 0
-  speed: 0
-  maxEnergy: 0
-  expYield: 0
-  growthRate: 0
-  catchRate: 255
-  learnableMoves: []
+  maxHp: 180
+  attack: 60
+  defence: 120
+  spAttack: 60
+  spDefense: 130
+  speed: 40
+  maxEnergy: 160
+  expYield: 1800
+  growthRate: 3
+  catchRate: 155
+  learnableMoves:
+  - moveBase: {fileID: 11400000, guid: d3f56bad49b71824ea205e8b1dd8cc6b, type: 2}
+    level: 1
+  - moveBase: {fileID: 11400000, guid: 44bab01950878014295536c451abc114, type: 2}
+    level: 1
+  - moveBase: {fileID: 11400000, guid: 9c05e1b237f5da04a987f13dd9b9d3c1, type: 2}
+    level: 1
+  - moveBase: {fileID: 11400000, guid: 9e095f844bb949e4aa9a6a2311feb999, type: 2}
+    level: 1
   learnableByItems: []
   evolutions: []

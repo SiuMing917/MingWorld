@@ -13,19 +13,47 @@ MonoBehaviour:
   m_Name: "\u5492\u8A00\xB7\u7761\u7720"
   m_EditorClassIdentifier: 
   name: "\u5492\u8A00\xB7\u7761\u7720"
-  description: 
-  type: 1
+  description: "\u4EE4\u5C0D\u624B\u9032\u5165\u7761\u7720\u72C0\u614B"
+  type: 8
   power: 0
-  accuracy: 55
+  accuracy: 65
   alwaysHit: 0
   pp: 20
   priority: 0
-  energy: 10
+  energy: 5
+  criticalrate: 0
   category: 2
   effects:
     boosts: []
     status: 3
     volatileStatus: 0
+    selfeffect: 0
   secondaries: []
   target: 0
+  movespecial:
+    withLevel: 0
+    withEnergy: 0
+    withBoosts: 0
+    withStats: 0
+    withHp: 0
+    withPp: 0
+    withMoveType: 0
+    withUserType: 0
+    withTargetType: 0
+    withDamage: 0
+    clearBoosts: 0
+    copyStatus: 0
+    increaseHp: 0
+    decreaseHp: 0
+    increaseEnergy: 0
+    decreaseEnergy: 0
+    increasePp: 0
+    decreasePp: 0
+    copyMove: 0
+    makeDeath: 0
+    makeProtect: 0
+    makeRandom: 0
+    moveValue1: 0
+    moveValue2: 0
+    moveValue3: 0
   sound: {fileID: 0}

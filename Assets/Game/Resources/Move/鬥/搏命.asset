@@ -12,15 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b459839e87bb9fa48ae7cdc761fcb218, type: 3}
   m_Name: "\u640F\u547D"
   m_EditorClassIdentifier: 
-  name: 
-  description: 
-  type: 0
+  name: "\u640F\u547D"
+  description: "\u8207\u5C0D\u624B\u6C7A\u4E00\u6B7B\u6230\uFF0C\u5C07\u6575\u4EBA\u7684HP\u6253\u5230\u5230\u8207\u81EA\u8EAB\u4E00\u6A23\u3002"
+  type: 7
   power: 0
-  accuracy: 0
+  accuracy: 100
   alwaysHit: 0
-  pp: 0
+  pp: 5
   priority: 0
-  energy: 0
+  energy: 15
   criticalrate: 0
   category: 0
   effects:
@@ -35,7 +35,7 @@ MonoBehaviour:
     withEnergy: 0
     withBoosts: 0
     withStats: 0
-    withHp: 0
+    withHp: 1
     withPp: 0
     withMoveType: 0
     withUserType: 0

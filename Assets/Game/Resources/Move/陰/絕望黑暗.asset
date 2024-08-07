@@ -12,23 +12,49 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b459839e87bb9fa48ae7cdc761fcb218, type: 3}
   m_Name: "\u7D55\u671B\u9ED1\u6697"
   m_EditorClassIdentifier: 
-  name: 
-  description: 
-  type: 0
+  name: "\u7D55\u671B\u9ED1\u6697"
+  description: "\u4EE4\u4EBA\u7D55\u671B\u7684\u9ED1\u6697\u529B\u91CF\uFF0C\u5C07\u5C0D\u624B\u7684\u57FA\u790E\u80FD\u529B\u503C(\u4E0D\u5305\u542B\u547D\u4E2D\u548C\u9583\u907F)\u6975\u5927\u5E45\u5EA6\u4E0B\u964D\uFF0C\u6709\u6A5F\u6703\u964D\u5230\u6700\u4F4E\u3002"
+  type: 12
   power: 0
-  accuracy: 0
+  accuracy: 100
   alwaysHit: 0
-  pp: 0
+  pp: 3
   priority: 0
-  energy: 0
+  energy: 25
   criticalrate: 0
-  category: 0
+  category: 2
   effects:
-    boosts: []
+    boosts:
+    - stat: 0
+      boost: -3
+    - stat: 1
+      boost: -3
+    - stat: 2
+      boost: -3
+    - stat: 3
+      boost: -3
+    - stat: 4
+      boost: -3
     status: 0
     volatileStatus: 0
     selfeffect: 0
-  secondaries: []
+  secondaries:
+  - boosts:
+    - stat: 0
+      boost: -3
+    - stat: 1
+      boost: -3
+    - stat: 2
+      boost: -3
+    - stat: 3
+      boost: -3
+    - stat: 4
+      boost: -3
+    status: 0
+    volatileStatus: 0
+    selfeffect: 0
+    change: 10
+    target: 0
   target: 0
   movespecial:
     withLevel: 0

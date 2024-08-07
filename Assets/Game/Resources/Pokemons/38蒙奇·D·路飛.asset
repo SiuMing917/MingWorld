@@ -12,22 +12,48 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f27ad2d9eb429a5419c3092875fafb76, type: 3}
   m_Name: "38\u8499\u5947\xB7D\xB7\u8DEF\u98DB"
   m_EditorClassIdentifier: 
-  name: 
+  name: "\u8499\u5947\xB7D\xB7\u8DEF\u98DB"
   description: 
   frontSprite: {fileID: 0}
   backSprite: {fileID: 0}
-  type1: 0
-  type2: 0
-  maxHp: 0
-  attack: 0
-  defence: 0
-  spAttack: 0
-  spDefense: 0
-  speed: 0
-  maxEnergy: 0
-  expYield: 0
-  growthRate: 0
-  catchRate: 255
-  learnableMoves: []
+  type1: 7
+  type2: 13
+  maxHp: 126
+  attack: 105
+  defence: 104
+  spAttack: 53
+  spDefense: 82
+  speed: 83
+  maxEnergy: 140
+  expYield: 1500
+  growthRate: 2
+  catchRate: 180
+  learnableMoves:
+  - moveBase: {fileID: 11400000, guid: 103ac084b1d88974baedb72f6419c299, type: 2}
+    level: 1
+  - moveBase: {fileID: 11400000, guid: 11ecfa33f89cf014b84646afdbde1b96, type: 2}
+    level: 1
+  - moveBase: {fileID: 11400000, guid: 9654d6377494c394caa85faf3d4dab7b, type: 2}
+    level: 1
+  - moveBase: {fileID: 11400000, guid: 36ee698fe36bb0a4ca723b779c732fc4, type: 2}
+    level: 1
+  - moveBase: {fileID: 11400000, guid: 7cd6ca767c886054898c6b655c0045b6, type: 2}
+    level: 8
+  - moveBase: {fileID: 11400000, guid: 20e43eb1aa3df404ead59c1030aa907e, type: 2}
+    level: 14
+  - moveBase: {fileID: 11400000, guid: c67ac9b5518f059479a7dbbb86ccb586, type: 2}
+    level: 16
+  - moveBase: {fileID: 11400000, guid: d4724b1c2010dd74fb4114a468463664, type: 2}
+    level: 18
+  - moveBase: {fileID: 11400000, guid: 93e2cc02978a2af49888e7c7f9b41bf5, type: 2}
+    level: 22
+  - moveBase: {fileID: 11400000, guid: 19f57fde29cdf49458579774df616f09, type: 2}
+    level: 30
+  - moveBase: {fileID: 11400000, guid: 760d12c6f4b5b9146abf735ad65fa934, type: 2}
+    level: 35
+  - moveBase: {fileID: 11400000, guid: 57423a8b65e8a8243805a75b437e2346, type: 2}
+    level: 40
+  - moveBase: {fileID: 11400000, guid: f360339b9cd714342be2a150d1efdcc0, type: 2}
+    level: 45
   learnableByItems: []
   evolutions: []

@@ -30,8 +30,8 @@ MonoBehaviour:
     selfeffect: 0
   secondaries:
   - boosts: []
-    status: 6
-    volatileStatus: 0
+    status: 0
+    volatileStatus: 6
     selfeffect: 0
     change: 30
     target: 0

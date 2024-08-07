@@ -12,22 +12,51 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f27ad2d9eb429a5419c3092875fafb76, type: 3}
   m_Name: "39\u8CDE\u91D1\u7375\u4EBA\u7D22\u9686"
   m_EditorClassIdentifier: 
-  name: 
+  name: "\u8CDE\u91D1\u7375\u4EBA\u7D22\u9686"
   description: 
   frontSprite: {fileID: 0}
   backSprite: {fileID: 0}
-  type1: 0
+  type1: 7
   type2: 0
-  maxHp: 0
-  attack: 0
-  defence: 0
-  spAttack: 0
-  spDefense: 0
-  speed: 0
-  maxEnergy: 0
-  expYield: 0
-  growthRate: 0
-  catchRate: 255
-  learnableMoves: []
+  maxHp: 90
+  attack: 95
+  defence: 66
+  spAttack: 58
+  spDefense: 68
+  speed: 70
+  maxEnergy: 80
+  expYield: 1000
+  growthRate: 1
+  catchRate: 200
+  learnableMoves:
+  - moveBase: {fileID: 11400000, guid: 22d5fb872bd88c2459f7b0ca42e3f725, type: 2}
+    level: 1
+  - moveBase: {fileID: 11400000, guid: 11ecfa33f89cf014b84646afdbde1b96, type: 2}
+    level: 1
+  - moveBase: {fileID: 11400000, guid: 9654d6377494c394caa85faf3d4dab7b, type: 2}
+    level: 1
+  - moveBase: {fileID: 11400000, guid: 599be0246aff40d48a6ccb0d28243dac, type: 2}
+    level: 1
+  - moveBase: {fileID: 11400000, guid: dc40b9c832714a149bc166cc5c94e495, type: 2}
+    level: 8
+  - moveBase: {fileID: 11400000, guid: 8f1ccc46dcefb524085d270a3dee8220, type: 2}
+    level: 11
+  - moveBase: {fileID: 11400000, guid: 5f5a3e1e17e100e47b93ad463fddb894, type: 2}
+    level: 14
+  - moveBase: {fileID: 11400000, guid: 6f3c52f0f44f2c54592b5273199e8391, type: 2}
+    level: 17
+  - moveBase: {fileID: 11400000, guid: 77459ee2324608a43b122442ca9409bf, type: 2}
+    level: 20
+  - moveBase: {fileID: 11400000, guid: 93e2cc02978a2af49888e7c7f9b41bf5, type: 2}
+    level: 26
+  - moveBase: {fileID: 11400000, guid: 50ad2b6dba404a94ba7691329b270e97, type: 2}
+    level: 30
+  - moveBase: {fileID: 11400000, guid: bd8d0b5027682ec40b90e4c41c6637a9, type: 2}
+    level: 38
+  - moveBase: {fileID: 11400000, guid: 9ec3f3eae4b87bd4eb319269b114ff63, type: 2}
+    level: 42
   learnableByItems: []
-  evolutions: []
+  evolutions:
+  - evolvesInto: {fileID: 11400000, guid: 96b2192cfd162914bb2d239a4c37e7a6, type: 2}
+    requiredLevel: 30
+    requiredItem: {fileID: 0}

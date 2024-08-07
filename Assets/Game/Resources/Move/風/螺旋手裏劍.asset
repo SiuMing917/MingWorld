@@ -21,7 +21,7 @@ MonoBehaviour:
   pp: 5
   priority: 0
   energy: 20
-  criticalrate: 20
+  criticalrate: 40
   category: 0
   effects:
     boosts: []
