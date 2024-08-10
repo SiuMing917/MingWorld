@@ -52,6 +52,8 @@ public class RunTurnState : State<BattleSystem>
         Move useRest = new Move(bs.DefaultMoveBases[1]);
 
         int currentMove = bs.SelectedMove;
+        playerUnit.Pokemon.CurrentMove = useRest;
+        enemyUnit.Pokemon.CurrentMove = useRest;
         Debug.Log($"你的學生有{playerUnit.Pokemon.Moves.Count}個技能,現在使用的是技能{currentMove+1}");
         //選擇戰鬥
         if (playerAction == BattleAction.Move)
@@ -429,6 +431,12 @@ public class RunTurnState : State<BattleSystem>
             playerUnit.Pokemon.Exp += expYield;
             yield return dialogBox.TypeDialog($"{playerUnit.Pokemon.Base.Name}獲得了{expGain}經驗值");
 
+            if(!isTrainerBattle)
+            {
+                Wallet.i.AddMoney(enemyLevel * 100);
+                yield return dialogBox.TypeDialog($"你獲得了獲得了金錢${enemyLevel * 100}");
+            }
+
             //Set Exp 條 BAR
             yield return playerUnit.Hud.SetExpSmooth();
             //Check有冇升級
@@ -589,6 +597,8 @@ public class RunTurnState : State<BattleSystem>
             else
             {
                 yield return dialogBox.TypeDialog($"emmmm....走唔到,點算好...");
+                Move useRest = new Move(bs.DefaultMoveBases[1]);
+                playerUnit.Pokemon.CurrentMove = useRest;
                 //回到行動狀態中
             }
         }

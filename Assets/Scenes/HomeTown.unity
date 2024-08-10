@@ -331,7 +331,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &487634966
 Transform:
   m_ObjectHideFlags: 0
@@ -12694,6 +12694,14 @@ PrefabInstance:
       value: a5d58fc6-81e1-4669-a4a9-702fff6923a2
       objectReference: {fileID: 0}
     - target: {fileID: 4782754242675724561, guid: 5bed40b105ada984281bc63076494176, type: 3}
+      propertyPath: item
+      value: 
+      objectReference: {fileID: 11400000, guid: 6ce0c90887a438c4481d528bfbe00d79, type: 2}
+    - target: {fileID: 4782754242675724561, guid: 5bed40b105ada984281bc63076494176, type: 3}
+      propertyPath: loot
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4782754242675724561, guid: 5bed40b105ada984281bc63076494176, type: 3}
       propertyPath: name
       value: "\u65D7\u6728\u5361\u5361\u897F"
       objectReference: {fileID: 0}
@@ -12712,6 +12720,10 @@ PrefabInstance:
     - target: {fileID: 4782754242675724562, guid: 5bed40b105ada984281bc63076494176, type: 3}
       propertyPath: m_Name
       value: "\u6230\u9B25\u54E1(\u5361\u5361\u897F)"
+      objectReference: {fileID: 0}
+    - target: {fileID: 4782754242675724562, guid: 5bed40b105ada984281bc63076494176, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4782754242675724563, guid: 5bed40b105ada984281bc63076494176, type: 3}
       propertyPath: walkUpSprites.Array.data[0]
@@ -12869,6 +12881,14 @@ PrefabInstance:
       propertyPath: pokemons.Array.data[1].CustomMoveBase.Array.data[3]
       value: 
       objectReference: {fileID: 11400000, guid: 7de595bb3a88f9145975ea6a2377b1ce, type: 2}
+    - target: {fileID: 4782754242675724566, guid: 5bed40b105ada984281bc63076494176, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 1.3125
+      objectReference: {fileID: 0}
+    - target: {fileID: 4782754242675724566, guid: 5bed40b105ada984281bc63076494176, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 1.9791666
+      objectReference: {fileID: 0}
     - target: {fileID: 4782754242675724567, guid: 5bed40b105ada984281bc63076494176, type: 3}
       propertyPath: m_Sprite
       value: 

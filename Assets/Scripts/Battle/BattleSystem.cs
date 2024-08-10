@@ -110,6 +110,7 @@ public class BattleSystem : MonoBehaviour
 
         battleTrigger = trigger;
 
+
         AudioManager.i.PlayMusic(trainerBattleMusic);
 
         StartCoroutine(SetupBattle());
@@ -127,6 +128,8 @@ public class BattleSystem : MonoBehaviour
         //將前一個對手和自己使用技能Initialize做掙扎
         prevMoveSelfUsed = new Move(defaultMoveBases[0]);
         prevMoveTargetUsed = new Move(defaultMoveBases[0]);
+
+        //playerUnit.Pokemon.CurrentMove = new Move(defaultMoveBases[1]);
 
         //決定戰鬥背景
         backgroundImage.sprite = grassBackground;//Initialize先，之後再決定用邊個
@@ -267,6 +270,8 @@ public class BattleSystem : MonoBehaviour
         var pokeball = pokeballObj.gameObject.GetComponent<SpriteRenderer>();
         pokeball.sprite = pokeballItem.Icon;
 
+        playerUnit.Pokemon.CurrentMove = new Move(defaultMoveBases[1]);
+
         //動畫
         //直到動畫完成才執行下一個
         yield return pokeball.transform.DOJump(enemyUnit.transform.position + new Vector3(0, 2), 2f, 1, 1f).WaitForCompletion();
@@ -298,6 +303,10 @@ public class BattleSystem : MonoBehaviour
                 yield return dialogBox.TypeDialog($"{enemyUnit.Pokemon.Base.Name}加入了你的小隊中");
             else
                 yield return dialogBox.TypeDialog($"{enemyUnit.Pokemon.Base.Name}加入了你的學生待定區中");
+
+            yield return dialogBox.TypeDialog($"你獲得了金錢${enemyUnit.Pokemon.Level * 50}");
+
+            Wallet.i.AddMoney(enemyUnit.Pokemon.Level * 50);
 
             Destroy(pokeball);
             BattleOver(true);

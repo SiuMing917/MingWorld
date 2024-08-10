@@ -17007,7 +17007,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 7
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -18100,51 +18100,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aed69a43cb8777340a6714df20ff2ecc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pokemons:
-  - _base: {fileID: 11400000, guid: c891556be9c4c15488973b58e04bee34, type: 2}
-    _level: 10
-    CustomMoveBase:
-    - {fileID: 11400000, guid: 9772d3bfbff6d764999d866b5ad41a14, type: 2}
-    - {fileID: 11400000, guid: b948743adfe0901418aa859bbf53ccac, type: 2}
-    - {fileID: 11400000, guid: f86f35e0f2b31e64690cd87b28a643e5, type: 2}
-    - {fileID: 11400000, guid: 20e43eb1aa3df404ead59c1030aa907e, type: 2}
-    AllBoostsPosCount: 0
-    lockEnegy: 0
-    mustHit: 0
-  - _base: {fileID: 11400000, guid: 8a7fb04b55a556648a2e908e89079b71, type: 2}
-    _level: 15
-    CustomMoveBase:
-    - {fileID: 11400000, guid: d7195e5082f7d744fba37298a1806b9c, type: 2}
-    - {fileID: 11400000, guid: 901cac45ec5e5d34fb1243b6e523ac1b, type: 2}
-    - {fileID: 11400000, guid: 20e43eb1aa3df404ead59c1030aa907e, type: 2}
-    - {fileID: 11400000, guid: 0330d805af990424e9a8c18ec2849391, type: 2}
-    AllBoostsPosCount: 0
-    lockEnegy: 0
-    mustHit: 0
-  - _base: {fileID: 11400000, guid: 578dfe76698726342813aa63f2b29463, type: 2}
-    _level: 3
-    CustomMoveBase: []
-    AllBoostsPosCount: 0
-    lockEnegy: 0
-    mustHit: 0
-  - _base: {fileID: 11400000, guid: 7e84f0a0883b94b418d56dbcf0e8b883, type: 2}
-    _level: 5
-    CustomMoveBase: []
-    AllBoostsPosCount: 0
-    lockEnegy: 0
-    mustHit: 0
-  - _base: {fileID: 11400000, guid: c891556be9c4c15488973b58e04bee34, type: 2}
-    _level: 10
-    CustomMoveBase: []
-    AllBoostsPosCount: 0
-    lockEnegy: 0
-    mustHit: 0
-  - _base: {fileID: 11400000, guid: c891556be9c4c15488973b58e04bee34, type: 2}
-    _level: 10
-    CustomMoveBase: []
-    AllBoostsPosCount: 0
-    lockEnegy: 0
-    mustHit: 0
+  pokemons: []
 --- !u!114 &7999024774751313804
 MonoBehaviour:
   m_ObjectHideFlags: 0

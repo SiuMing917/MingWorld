@@ -8,9 +8,19 @@ public class TrainerController : MonoBehaviour, Interactable, ISavable
     [SerializeField] Sprite sprite;
     [SerializeField] Dialog dialog;
     [SerializeField] Dialog dialogAfterBattle;
+    [SerializeField] Dialog dialogLost;
     [SerializeField] GameObject exclamation;
     [SerializeField] GameObject fov;
     [SerializeField] AudioClip trainerAppearsClip;
+
+    [SerializeField] int money = 1000;
+
+    [SerializeField] bool loot = false;
+    [SerializeField] ItemBase item;
+    [SerializeField] int count = 1;
+
+    ItemGiver itemGiver;
+    bool used = false;
 
 
     bool battleLosst = false;
@@ -113,6 +123,11 @@ public class TrainerController : MonoBehaviour, Interactable, ISavable
     {
         battleLosst = true;
         fov.gameObject.SetActive(false);
+
+        if(loot && !used)
+        {
+            StartCoroutine(GiveItem(PlayerController.i.transform.GetComponent<PlayerController>()));
+        }
     }
 
     public void SetFovRotation(FacingDirection dir)
@@ -139,5 +154,32 @@ public class TrainerController : MonoBehaviour, Interactable, ISavable
         //當戰鬥失敗時 對手的事業要Set Inactive.
         if (battleLosst)
             fov.gameObject.SetActive(false);
+    }
+
+    public IEnumerator GiveItem(PlayerController player)
+    {
+        yield return DialogManager.Instance.ShowDialog(dialogAfterBattle);
+        /*
+        if (dialogLost!=null)
+            yield return DialogManager.Instance.ShowDialog(dialogLost);
+        else
+            yield return DialogManager.Instance.ShowDialog(dialogAfterBattle);
+        */
+
+        player.GetComponent<Inventory>().AddItem(item, count);
+
+        used = true;
+
+        AudioManager.i.PlaySfx(AudioId.ItemObtained, pauseMusic: true);
+
+        string dialogText = $"{player.Name}得到了{item.Name}";
+        if (count > 1)
+            dialogText = $"{player.Name}得到了{count}個{item.Name}";
+
+        yield return DialogManager.Instance.ShowDialogText(dialogText);
+
+        Wallet.i.AddMoney(money);
+        yield return DialogManager.Instance.ShowDialogText($"你獲得了金錢${money}");
+
     }
 }
