@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: "\u9396\u93C8\u6BBA\u624B\xB7\u9177\u62C9\u76AE\u5361"
   description: 
-  frontSprite: {fileID: 0}
-  backSprite: {fileID: 0}
+  frontSprite: {fileID: 21300000, guid: b663e0fd325919e48b919ea166a152ed, type: 3}
+  backSprite: {fileID: 21300000, guid: b663e0fd325919e48b919ea166a152ed, type: 3}
   type1: 12
   type2: 0
   maxHp: 76

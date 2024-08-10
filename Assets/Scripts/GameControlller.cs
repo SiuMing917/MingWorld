@@ -58,7 +58,10 @@ public class GameControlller : MonoBehaviour
             StateMachine.Pop();
         };
 
-        if(!isNewGame)
+        if(isNewGame)
+            SavingSystem.i.Save("save01");
+
+        if (!isNewGame)
             SavingSystem.i.Load("save01");
     }
 

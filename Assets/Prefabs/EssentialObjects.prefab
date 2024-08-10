@@ -18030,7 +18030,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7999024774751313794}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -2.32, y: 0.82, z: 0}
+  m_LocalPosition: {x: -52, y: 1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 7999024774485162528}
@@ -18108,6 +18108,9 @@ MonoBehaviour:
     - {fileID: 11400000, guid: b948743adfe0901418aa859bbf53ccac, type: 2}
     - {fileID: 11400000, guid: f86f35e0f2b31e64690cd87b28a643e5, type: 2}
     - {fileID: 11400000, guid: 20e43eb1aa3df404ead59c1030aa907e, type: 2}
+    AllBoostsPosCount: 0
+    lockEnegy: 0
+    mustHit: 0
   - _base: {fileID: 11400000, guid: 8a7fb04b55a556648a2e908e89079b71, type: 2}
     _level: 15
     CustomMoveBase:
@@ -18115,18 +18118,33 @@ MonoBehaviour:
     - {fileID: 11400000, guid: 901cac45ec5e5d34fb1243b6e523ac1b, type: 2}
     - {fileID: 11400000, guid: 20e43eb1aa3df404ead59c1030aa907e, type: 2}
     - {fileID: 11400000, guid: 0330d805af990424e9a8c18ec2849391, type: 2}
+    AllBoostsPosCount: 0
+    lockEnegy: 0
+    mustHit: 0
   - _base: {fileID: 11400000, guid: 578dfe76698726342813aa63f2b29463, type: 2}
     _level: 3
     CustomMoveBase: []
+    AllBoostsPosCount: 0
+    lockEnegy: 0
+    mustHit: 0
   - _base: {fileID: 11400000, guid: 7e84f0a0883b94b418d56dbcf0e8b883, type: 2}
     _level: 5
     CustomMoveBase: []
+    AllBoostsPosCount: 0
+    lockEnegy: 0
+    mustHit: 0
   - _base: {fileID: 11400000, guid: c891556be9c4c15488973b58e04bee34, type: 2}
     _level: 10
     CustomMoveBase: []
+    AllBoostsPosCount: 0
+    lockEnegy: 0
+    mustHit: 0
   - _base: {fileID: 11400000, guid: c891556be9c4c15488973b58e04bee34, type: 2}
     _level: 10
     CustomMoveBase: []
+    AllBoostsPosCount: 0
+    lockEnegy: 0
+    mustHit: 0
 --- !u!114 &7999024774751313804
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -505,7 +505,11 @@ public class RunTurnState : State<BattleSystem>
                 yield return bs.SwitchPokemon(PartyState.i.SelectedPokemon);
             }
             else
+            {
+                StartCoroutine(ShowSaveLoadDialog(false));
                 bs.BattleOver(false);
+                SavingSystem.i.Load("save01");
+            }
         }
         else
         {
@@ -525,6 +529,14 @@ public class RunTurnState : State<BattleSystem>
                     bs.BattleOver(true);
             }
         }
+    }
+
+    public IEnumerator ShowSaveLoadDialog(bool isSave)
+    {
+        if (isSave)
+            yield return dialogBox.TypeDialog("已保存檔案...");
+        else
+            yield return dialogBox.TypeDialog("檢測到你正在作死挑戰強大對手，已為你開啟死亡重生...");
     }
 
 
