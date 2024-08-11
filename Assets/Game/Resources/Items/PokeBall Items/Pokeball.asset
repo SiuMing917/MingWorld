@@ -15,6 +15,6 @@ MonoBehaviour:
   name: "\u7CBE\u9748\u7403"
   description: "\u666E\u901A\u6982\u7387\u62D0\u9A19\u5B78\u751F"
   icon: {fileID: -6885498132332409789, guid: 762c105d9aebcc047919c1a3bdfd76fe, type: 3}
-  price: 0
-  isSellable: 0
+  price: 500
+  isSellable: 1
   catchRateModfier: 1

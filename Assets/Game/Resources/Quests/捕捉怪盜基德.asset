@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44689c250e16f0345b63a5ac5b7da716, type: 3}
+  m_Name: "\u6355\u6349\u602A\u76DC\u57FA\u5FB7"
+  m_EditorClassIdentifier: 
+  name: "\u6355\u6349\u602A\u76DC\u57FA\u5FB7"
+  description: "\u5E6B\u52A9\u5DE5\u85E4\u65B0\u4E00\u6355\u6349\u602A\u76DC\u57FA\u5FB7"
+  startDialogue:
+    lines:
+    - "\u4F60\u597D\uFF0C\u6211\u4FC2\u540D\u5075\u63A2\u5DE5\u85E4\u65B0\u4E00\u3002"
+    - "\u602A\u76DC\u57FA\u5FB7\u6B63\u5728\u9644\u8FD1\u9032\u884C\u5077\u7ACA\u3002"
+    - "\u56E0\u70BA\u4F62\u4FC2\u6211\u5802\u54E5\uFF0C\u6211\u5514\u65B9\u4FBF\u51FA\u624B\u3002"
+    - "\u8ACB\u4F60\u5E6B\u6211\u6349\u4F4F\u4F62\u3002"
+  inProgressDialogue:
+    lines:
+    - "\u6211\u90FD\u4FC2\u5571\u5571\u5148\u77E5\u4F62\u8001\u9017\u540C\u6211\u8001\u9017\u4FC2\u96D9\u80DE\u80CE\u5144\u5F1F\u3002"
+  completedDialogue:
+    lines:
+    - "\u6349\u5514\u5230\u4F62\u554A\uFF1F\u5462\u500B\u4FC2\u4F62\u7559\u6BD4\u6211\u5605\u4FE1\uFF1F\u591A\u8B1D\u4F60\u554A\u3002\u9001\u4F60\u5C11\u5C11\u91CE\u5566\u3002"
+    - "\u5462\u500B\u4FC2\u885D\u6D6A\uFF0C\u6BD4\u4F60\u5605\u5B78\u751F\u5B78\u7FD2\uFF0C\u53EF\u4EE5\u8B93\u4F60\u5728\u6C34\u4E0A\u79FB\u52D5\u3002"
+  requiredItem: {fileID: 11400000, guid: 3bc1ae3e8fcfb60409be0646f8be59a5, type: 2}
+  rewardItem: {fileID: 11400000, guid: 3d16bd9319b55da4fa6129aae44faded, type: 2}
+  rewardCount: 1

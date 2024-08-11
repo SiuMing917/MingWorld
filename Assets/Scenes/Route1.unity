@@ -5760,6 +5760,75 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!1001 &1088184996
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3258681751059735195, guid: ccbaa89106a0ae241bc114d1366a2f4f, type: 3}
+      propertyPath: uniqueId
+      value: f07ca0dd-631d-47be-885c-752af3641778
+      objectReference: {fileID: 0}
+    - target: {fileID: 8490406705978100024, guid: ccbaa89106a0ae241bc114d1366a2f4f, type: 3}
+      propertyPath: m_Name
+      value: "\u6230\u9B25\u54E1 (1)"
+      objectReference: {fileID: 0}
+    - target: {fileID: 8490406705978100025, guid: ccbaa89106a0ae241bc114d1366a2f4f, type: 3}
+      propertyPath: defaultDirection
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8490406705978100030, guid: ccbaa89106a0ae241bc114d1366a2f4f, type: 3}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8490406705978100030, guid: ccbaa89106a0ae241bc114d1366a2f4f, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -2.93264
+      objectReference: {fileID: 0}
+    - target: {fileID: 8490406705978100030, guid: ccbaa89106a0ae241bc114d1366a2f4f, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 29.914156
+      objectReference: {fileID: 0}
+    - target: {fileID: 8490406705978100030, guid: ccbaa89106a0ae241bc114d1366a2f4f, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8490406705978100030, guid: ccbaa89106a0ae241bc114d1366a2f4f, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8490406705978100030, guid: ccbaa89106a0ae241bc114d1366a2f4f, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8490406705978100030, guid: ccbaa89106a0ae241bc114d1366a2f4f, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8490406705978100030, guid: ccbaa89106a0ae241bc114d1366a2f4f, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8490406705978100030, guid: ccbaa89106a0ae241bc114d1366a2f4f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8490406705978100030, guid: ccbaa89106a0ae241bc114d1366a2f4f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8490406705978100030, guid: ccbaa89106a0ae241bc114d1366a2f4f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8490406705978100031, guid: ccbaa89106a0ae241bc114d1366a2f4f, type: 3}
+      propertyPath: pokemons.Array.data[0].CustomMoveBase.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: ccbaa89106a0ae241bc114d1366a2f4f, type: 3}
 --- !u!1001 &1153172154
 PrefabInstance:
   m_ObjectHideFlags: 0

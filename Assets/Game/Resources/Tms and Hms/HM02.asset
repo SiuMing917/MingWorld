@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 03b0900b7045daa44a4c4e6e864d2c0c, type: 3}
+  m_Name: HM02
+  m_EditorClassIdentifier: 
+  name: HM02
+  description: "\u53EF\u4EE5\u5B78\u7FD2\u885D\u6D6A"
+  icon: {fileID: 6639657697291588988, guid: 9226b0efdbba469459850ec55d046558, type: 3}
+  price: 0
+  isSellable: 0
+  move: {fileID: 11400000, guid: 901cac45ec5e5d34fb1243b6e523ac1b, type: 2}
+  isHM: 1

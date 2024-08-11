@@ -55,7 +55,9 @@ MonoBehaviour:
     level: 42
   - moveBase: {fileID: 11400000, guid: 3936979ff89a1a84a991cf6bdd2e5749, type: 2}
     level: 50
-  learnableByItems: []
+  learnableByItems:
+  - {fileID: 11400000, guid: 22d5fb872bd88c2459f7b0ca42e3f725, type: 2}
+  - {fileID: 11400000, guid: 901cac45ec5e5d34fb1243b6e523ac1b, type: 2}
   evolutions:
   - evolvesInto: {fileID: 11400000, guid: 1eb17e71faebcbd46b73ad7682bbb770, type: 2}
     requiredLevel: 36

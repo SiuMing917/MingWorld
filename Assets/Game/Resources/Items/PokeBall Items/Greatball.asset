@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9804737582106a4f9232d0eea36fd2c, type: 3}
   m_Name: Greatball
   m_EditorClassIdentifier: 
-  name: "\u9AD8\u7D1A\u7403"
+  name: "\u4E2D\u7D1A\u7403"
   description: "\u4E2D\u6982\u7387\u62D0\u9A19\u5B78\u751F"
   icon: {fileID: 8020060226805192610, guid: 762c105d9aebcc047919c1a3bdfd76fe, type: 3}
-  price: 0
-  isSellable: 0
-  catchRateModfier: 150
+  price: 1500
+  isSellable: 1
+  catchRateModfier: 2

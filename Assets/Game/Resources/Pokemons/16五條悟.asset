@@ -16,18 +16,28 @@ MonoBehaviour:
   description: 
   frontSprite: {fileID: 21300000, guid: afbf605657a87494698e010109e10410, type: 3}
   backSprite: {fileID: 21300000, guid: afbf605657a87494698e010109e10410, type: 3}
-  type1: 0
+  type1: 13
   type2: 0
-  maxHp: 0
-  attack: 0
-  defence: 0
-  spAttack: 0
-  spDefense: 0
-  speed: 0
-  maxEnergy: 0
-  expYield: 0
-  growthRate: 0
-  catchRate: 255
-  learnableMoves: []
-  learnableByItems: []
+  maxHp: 110
+  attack: 110
+  defence: 110
+  spAttack: 110
+  spDefense: 110
+  speed: 110
+  maxEnergy: 160
+  expYield: 5000
+  growthRate: 5
+  catchRate: 50
+  learnableMoves:
+  - moveBase: {fileID: 11400000, guid: 84f0aa5ca23b33a44a0982f383d4c568, type: 2}
+    level: 1
+  - moveBase: {fileID: 11400000, guid: 24390909d1f53ee409c8ef17d7719b80, type: 2}
+    level: 1
+  - moveBase: {fileID: 11400000, guid: c4182e06b09f48d4eadea80b1508637e, type: 2}
+    level: 1
+  - moveBase: {fileID: 11400000, guid: 3364f8c1464860447b4c27efadb7138c, type: 2}
+    level: 1
+  learnableByItems:
+  - {fileID: 11400000, guid: 22d5fb872bd88c2459f7b0ca42e3f725, type: 2}
+  - {fileID: 11400000, guid: 901cac45ec5e5d34fb1243b6e523ac1b, type: 2}
   evolutions: []

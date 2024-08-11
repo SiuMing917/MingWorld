@@ -15,7 +15,7 @@ MonoBehaviour:
   name: "\u89E3\u6BD2\u85E5"
   description: "\u89E3\u6BD2"
   icon: {fileID: 5297410382422992106, guid: fc60c0dace0b2ea4b87e4932e808e210, type: 3}
-  price: 100
+  price: 1000
   isSellable: 1
   hpAmount: 0
   restoreMaxHP: 0

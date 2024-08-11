@@ -22,3 +22,4 @@ MonoBehaviour:
     lines: []
   requiredItem: {fileID: 0}
   rewardItem: {fileID: 0}
+  rewardCount: 1

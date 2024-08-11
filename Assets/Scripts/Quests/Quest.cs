@@ -58,10 +58,10 @@ public class Quest
         //如果有獎勵 給予玩家物品
         if (Base.RewardItem != null)
         {
-            inventory.AddItem(Base.RewardItem);
+            inventory.AddItem(Base.RewardItem, Base.RewardCount);
             string playerName = player.GetComponent<PlayerController>().Name;
             AudioManager.i.PlaySfx(AudioId.ItemObtained, pauseMusic: true);
-            yield return DialogManager.Instance.ShowDialogText($"{playerName}獲得了{Base.RewardItem.Name}");
+            yield return DialogManager.Instance.ShowDialogText($"{playerName}獲得了{Base.RewardItem.Name} x {Base.RewardCount}個");
         }
 
         var questList = QuestList.GetQuestList();

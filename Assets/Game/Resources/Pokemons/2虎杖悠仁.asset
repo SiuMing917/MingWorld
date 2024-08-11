@@ -57,10 +57,7 @@ MonoBehaviour:
     level: 50
   learnableByItems:
   - {fileID: 11400000, guid: 22d5fb872bd88c2459f7b0ca42e3f725, type: 2}
-  - {fileID: 11400000, guid: adfe94b4ba093814fa3d197ba8f5084d, type: 2}
-  - {fileID: 11400000, guid: 1da898afbd948da4f99d1a9fb09fd1bd, type: 2}
-  - {fileID: 11400000, guid: 8458093f363ab8a498eedde9ba66ed19, type: 2}
-  - {fileID: 11400000, guid: 3b5cdbd274e42a84b9a2d4821f3ed5c9, type: 2}
+  - {fileID: 11400000, guid: 901cac45ec5e5d34fb1243b6e523ac1b, type: 2}
   evolutions:
   - evolvesInto: {fileID: 11400000, guid: 5dd2f84523ae89b49944ffe7be875096, type: 2}
     requiredLevel: 16

@@ -15,6 +15,8 @@ public class QuestBase : ScriptableObject
     [SerializeField] ItemBase requiredItem;
     [SerializeField] ItemBase rewardItem;
 
+    [SerializeField] int rewardCount = 1;
+
     public string Name => name;
     public string Description => description;
 
@@ -24,5 +26,7 @@ public class QuestBase : ScriptableObject
 
     public ItemBase RequiredItem => requiredItem;
     public ItemBase RewardItem => rewardItem;
+
+    public int RewardCount => rewardCount;
 
 }
