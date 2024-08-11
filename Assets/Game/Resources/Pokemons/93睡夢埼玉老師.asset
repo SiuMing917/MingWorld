@@ -24,7 +24,7 @@ MonoBehaviour:
   spAttack: 20
   spDefense: 20
   speed: 250
-  maxEnergy: 0
+  maxEnergy: 50
   expYield: 8000
   growthRate: 0
   catchRate: 10

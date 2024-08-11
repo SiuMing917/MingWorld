@@ -18100,7 +18100,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aed69a43cb8777340a6714df20ff2ecc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pokemons: []
+  pokemons:
+  - _base: {fileID: 11400000, guid: 28de035bbdf870b4b9ab76a139ccb283, type: 2}
+    _level: 10
+    CustomMoveBase: []
+    AllBoostsPosCount: 0
+    lockEnegy: 0
+    mustHit: 0
 --- !u!114 &7999024774751313804
 MonoBehaviour:
   m_ObjectHideFlags: 0

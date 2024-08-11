@@ -25,7 +25,7 @@ MonoBehaviour:
   spDefense: 90
   speed: 130
   maxEnergy: 140
-  expYield: 10000
+  expYield: 5000
   growthRate: 5
   catchRate: 50
   learnableMoves:

@@ -3441,6 +3441,14 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7911310617774247182, guid: b0fc967f3216b24448a52489cc79e753, type: 3}
+      propertyPath: pokemonToGive._base
+      value: 
+      objectReference: {fileID: 11400000, guid: 8a7fb04b55a556648a2e908e89079b71, type: 2}
+    - target: {fileID: 7911310617774247182, guid: b0fc967f3216b24448a52489cc79e753, type: 3}
+      propertyPath: pokemonToGive._level
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 7911310617774247182, guid: b0fc967f3216b24448a52489cc79e753, type: 3}
       propertyPath: dialog.lines.Array.data[0]
       value: "\u4F60\u60F3\u8981\u6210\u7232\u8001\u5E2B\uFF0C\u5C31\u9700\u8981\u5B78\u751F\u3002"
       objectReference: {fileID: 0}
