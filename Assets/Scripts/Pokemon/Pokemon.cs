@@ -694,9 +694,12 @@ public class Pokemon
         //純回血技能技能
         if (move.Base.MoveSpecial.IncreaseHp && move.Base.MoveSpecial.MoveValue1 == 2)//Value1： 1 =>攻擊帶回血 2=>非攻擊類帶回血
         {
+            Debug.Log("回血技");
             if (move.Base.MoveSpecial.MoveValue2 > 0)//回血比例（最大HP）
             {
-                attacker.IncreaseHP(Mathf.FloorToInt(MaxHp * move.Base.MoveSpecial.MoveValue2 * 0.01f));
+                int healhp = Mathf.FloorToInt(attacker.MaxHp * move.Base.MoveSpecial.MoveValue2 * 0.01f);
+                Debug.Log(healhp);
+                attacker.IncreaseHP(healhp);
             }
             else if (move.Base.MoveSpecial.MoveValue3 > 0)//固定回血量
             {
@@ -704,11 +707,11 @@ public class Pokemon
             }
         }
         //純扣血技能技能
-        if (move.Base.MoveSpecial.IncreaseHp && move.Base.MoveSpecial.MoveValue1 == 2)
+        if (move.Base.MoveSpecial.DecreaseHp && move.Base.MoveSpecial.MoveValue1 == 2)
         {
             if (move.Base.MoveSpecial.MoveValue2 > 0)//扣血比例（最大HP）
             {
-                attacker.DecreaseHP(Mathf.FloorToInt(MaxHp * move.Base.MoveSpecial.MoveValue2 * 0.01f));
+                attacker.DecreaseHP(Mathf.FloorToInt(attacker.MaxHp * move.Base.MoveSpecial.MoveValue2 * 0.01f));
             }
             else if (move.Base.MoveSpecial.MoveValue3 > 0)//固定扣血量
             {
@@ -717,11 +720,11 @@ public class Pokemon
         }
 
         //純扣血技能技能
-        if (move.Base.MoveSpecial.IncreaseHp && move.Base.MoveSpecial.MoveValue1 == 3)//根據當前HP扣
+        if (move.Base.MoveSpecial.DecreaseHp && move.Base.MoveSpecial.MoveValue1 == 3)//根據當前HP扣
         {
             if (move.Base.MoveSpecial.MoveValue2 > 0)//扣血比例（當前HP）
             {
-                attacker.DecreaseHP(Mathf.FloorToInt(HP * move.Base.MoveSpecial.MoveValue2 * 0.01f));
+                attacker.DecreaseHP(Mathf.FloorToInt(attacker.HP * move.Base.MoveSpecial.MoveValue2 * 0.01f));
             }
             else if (move.Base.MoveSpecial.MoveValue3 > 0)//固定扣血量
             {

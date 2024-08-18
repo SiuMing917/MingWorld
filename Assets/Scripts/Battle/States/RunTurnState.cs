@@ -221,6 +221,9 @@ public class RunTurnState : State<BattleSystem>
             //Check係唔係狀態變化技
             if (move.Base.Category == MoveCategory.Status)
             {
+                var damageDetails = targetUnit.Pokemon.TakeDamage(move, sourceUnit.Pokemon);
+                yield return targetUnit.Hud.WaitForHPUpdate();
+
                 yield return RunMoveEffects(move.Base.Effects, sourceUnit.Pokemon, targetUnit.Pokemon, move.Base.Target);
 
             }
