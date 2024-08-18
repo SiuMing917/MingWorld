@@ -16,9 +16,9 @@ MonoBehaviour:
   description: "\u7528\u5E36\u706B\u7684\u811A\u653B\u64CA\u5C0D\u65B9\u7684\u540C\u6642\uFF0C\u63D0\u9AD8\u81EA\u8EAB\u901F\u5EA6\u3002"
   type: 2
   power: 55
-  accuracy: 0
+  accuracy: 100
   alwaysHit: 0
-  pp: 0
+  pp: 10
   priority: 0
   energy: 8
   criticalrate: 0

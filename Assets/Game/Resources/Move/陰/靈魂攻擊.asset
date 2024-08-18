@@ -16,11 +16,11 @@ MonoBehaviour:
   description: "\u5C0D\u6575\u4EBA\u9748\u9B42\u9032\u884C\u653B\u64CA\uFF0C\u524A\u6E1B\u5C0D\u624B\u7576\u524DHP\u7684\u4E00\u534A\u3002"
   type: 0
   power: 0
-  accuracy: 0
+  accuracy: 100
   alwaysHit: 0
-  pp: 0
+  pp: 8
   priority: 0
-  energy: 0
+  energy: 10
   criticalrate: 0
   category: 0
   effects:

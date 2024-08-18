@@ -516,6 +516,8 @@ public class RunTurnState : State<BattleSystem>
             {
                 StartCoroutine(ShowSaveLoadDialog(false));
                 bs.BattleOver(false);
+
+                playerParty.Pokemons.ForEach(p => p.Heal());
                 SavingSystem.i.Load("save01");
             }
         }

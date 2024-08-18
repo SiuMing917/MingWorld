@@ -18,7 +18,7 @@ MonoBehaviour:
   power: 180
   accuracy: 100
   alwaysHit: 0
-  pp: 0
+  pp: 5
   priority: -2
   energy: 30
   criticalrate: 0
