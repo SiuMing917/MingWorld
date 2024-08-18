@@ -235,6 +235,7 @@ public class BattleSystem : MonoBehaviour
         }
 
         playerUnit.Setup(newPokemon);
+        playerUnit.Pokemon.CurrentMove = new Move(defaultMoveBases[1]);
 
         dialogBox.SetMoveNames(newPokemon.Moves);
         yield return dialogBox.TypeDialog("輪到你打宿儺啦！ " + newPokemon.Base.Name + "！");
